@@ -61,8 +61,12 @@ export function Button({
   )
 
   if (href) {
+    const linkProps = props as Omit<
+      LinkButton,
+      'href' | 'variant' | 'size' | 'className' | 'children' | 'showArrow'
+    >
     return (
-      <a href={href} className={classes} {...(props as LinkButton)}>
+      <a href={href} className={classes} {...linkProps}>
         {content}
       </a>
     )
