@@ -43,13 +43,13 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link
-            to="/#contact"
+          <a
+            href={`mailto:${site.email}`}
             className="hidden items-center gap-1.5 rounded-lg border border-border bg-white px-4 py-2 font-body text-sm font-medium text-ink transition-colors hover:border-accent-orange/40 hover:text-accent-orange md:inline-flex"
           >
             Contact
             <ArrowUpRight size={14} />
-          </Link>
+          </a>
 
           <button
             type="button"
@@ -80,14 +80,13 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link
-            to="/#contact"
+          <a
+            href={`mailto:${site.email}`}
             className="mt-2 inline-flex items-center gap-1.5 font-body text-sm font-medium text-accent-orange"
-            onClick={() => setMobileOpen(false)}
           >
             Contact
             <ArrowUpRight size={14} />
-          </Link>
+          </a>
         </nav>
       </div>
     </header>

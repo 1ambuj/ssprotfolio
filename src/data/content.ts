@@ -19,29 +19,11 @@ export const navLinks = [
   { label: 'Blogs', href: '/#blogs' },
 ]
 
-export const contactSection = {
-  eyebrow: "Let's talk",
-  title: 'Book a confidential consultation.',
-  description:
-    "Discovery calls are complimentary and run 30 minutes. Share a brief and I'll personally respond within one business day.",
-  confidentialNote: '100% confidential. Replies within 1 business day.',
-  submitLabel: 'Request consultation',
-  submitSuccessLabel: "Thank you — I'll be in touch",
-  serviceOptions: [
-    'Tax Advisory',
-    'Audit & Assurance',
-    'Advisory & Consulting',
-    'GST & Indirect Tax',
-    'Non-Resident & International',
-    'Compliance',
-    'Corporate Advisory',
-  ],
-}
-
 export const profile = {
   aboutHeading: 'About Me',
+  credentialsTitle: 'Professional qualifications and affiliations',
   certificationsHeading: 'Certifications',
-  membershipsHeading: 'Member',
+  membershipsHeading: 'Memberships',
   certifications: [
     {
       title: 'FEMA',
@@ -190,59 +172,319 @@ export const handbooks = [
   },
 ]
 
-export const blogs = [
+export type PortfolioBlog = {
+  slug: string;
+  category: string;
+  date: string;
+  icon: string;
+  title: string;
+  excerpt: string;
+  readTime: string;
+  href: string;
+};
+
+export const blogs: PortfolioBlog[] = [
   {
-    slug: 'budget-2026-what-founders-miss',
-    category: 'Tax',
-    date: '12 May 2026',
-    icon: 'newspaper',
-    title: 'Budget 2026: What founders still get wrong',
-    excerpt:
-      'A concise look at the Budget provisions that most commonly affect growing businesses — and the planning gaps we see in practice.',
-    readTime: '8 min read',
-    content: [
-      'Every Budget brings a wave of commentary. For founders and finance heads, the real task is separating headline changes from provisions that will actually affect cash flow, compliance, and capital allocation over the next 12–24 months.',
-      'In our recent client conversations, three themes keep recurring: revised expectations around withholding and reporting, the continued emphasis on traceability of transactions, and the need for documentation that stands up to scrutiny — not just at year-end, but throughout the year.',
-      'Founders often focus on the rate changes but under-invest in process. A lower effective rate is of limited value if input credits are delayed, TDS positions are unclear, or related-party arrangements lack contemporaneous support.',
-      'Our practical recommendation: run a post-Budget diagnostic on your entity structure, incentive utilisation, and compliance calendar. Small adjustments early are far less costly than corrections during assessment or investor diligence.',
-    ],
+    "slug": "section-194t-tds-partner-remuneration-firm",
+    "category": "Direct Taxation",
+    "date": "2025–2026",
+    "icon": "newspaper",
+    "title": "TDS on Partners' Salary & Remuneration from a Firm: Section 194T — A Complete Compliance Analysis",
+    "excerpt": "Section 40(b), the Capital Account Credit Trigger, Penalty Framework, and Worked Illustrations for Partnership Firms and LLPs",
+    "readTime": "25–30 min read",
+    "href": "/services/taxation/section-194t-tds-partner-remuneration-firm"
   },
   {
-    slug: 'gst-refunds-inverted-duty-2026',
-    category: 'GST',
-    date: '28 April 2026',
-    icon: 'receipt',
-    title: 'GST refunds in inverted duty structures: a 2026 playbook',
-    excerpt:
-      'How to approach refund claims where input GST exceeds output GST — and how to avoid the delays that stall working capital.',
-    readTime: '11 min read',
-    content: [
-      'Inverted duty structures — where inputs attract a higher GST rate than outputs — are common in manufacturing and processing industries. Refund of accumulated input tax credit is a statutory right, but the path to timely realisation is often uneven.',
-      'The most frequent causes of delay are mismatches between GSTR-1 and GSTR-3B, incomplete documentation linking inputs to outputs, and inconsistent classification positions across branches or contracts.',
-      'Before filing, reconcile ledgers, contracts, and HSN mappings. Ensure the refund application tells a coherent story: what you supply, what you procure, and why credit accumulation is structural rather than an error.',
-      'Where refunds are material to working capital, treat them as a recurring compliance process — not a once-a-year exercise. Regular monitoring reduces interest cost and surprises during departmental review.',
-    ],
+    "slug": "ita-2025-rnpo-framework-charitable-trusts",
+    "category": "Direct Taxation",
+    "date": "2025–2026",
+    "icon": "newspaper",
+    "title": "The RNPO Framework Under the Income Tax Act, 2025: What Every Charitable Trust Needs to Know Now",
+    "excerpt": "Registered Non-Profit Organisations — Sections 332–355: registration under Section 332, transition from 12A/12AB/10(23C), the three-layer in…",
+    "readTime": "22–26 min read",
+    "href": "/services/taxation/ita-2025-rnpo-framework-charitable-trusts"
   },
   {
-    slug: 'audit-committee-cadence',
-    category: 'Governance',
-    date: '15 March 2026',
-    icon: 'landmark',
-    title: 'Why your audit committee should meet more often than quarterly',
-    excerpt:
-      'Governance expectations are rising. A quarterly rhythm may no longer be enough for boards facing rapid regulatory change.',
-    readTime: '6 min read',
-    content: [
-      'Audit committees are being asked to oversee more — fraud risk, IT controls, related-party transactions, and whistle-blower mechanisms — often with the same quarterly meeting calendar used a decade ago.',
-      'More frequent, shorter check-ins allow the committee to review emerging issues before they become year-end findings. This is especially relevant for companies preparing for listing, fundraising, or group restructuring.',
-      'A practical cadence blends formal quarterly meetings with brief monthly updates on litigation, tax demands, major contracts, and internal audit progress. Documentation of these discussions strengthens the governance trail.',
-      'The goal is not more bureaucracy, but earlier visibility. Boards that see problems in real time make better decisions — and auditors can align their work with areas of genuine risk.',
-    ],
+    "slug": "ita-2025-rnpo-85-percent-application-rule",
+    "category": "Direct Taxation",
+    "date": "2025–2026",
+    "icon": "newspaper",
+    "title": "The 85% Application Rule: Why Getting the Computation Right Is More Complex Than It Appears",
+    "excerpt": "The central income-exemption test for every RNPO under the Income Tax Act, 2025 — and the subtle errors in applying it that generate unexpec…",
+    "readTime": "16 min read",
+    "href": "/services/taxation/ita-2025-rnpo-85-percent-application-rule"
   },
-]
+  {
+    "slug": "fcra-compliance-five-obligations-2020",
+    "category": "Direct Taxation",
+    "date": "2025–2026",
+    "icon": "newspaper",
+    "title": "FCRA Compliance After the 2020 Amendments: The Five Obligations That NGOs Most Frequently Miss",
+    "excerpt": "A compliance framework for charitable trusts, NGOs, Section 8 companies, and societies receiving foreign contributions under the Foreign Con…",
+    "readTime": "22–26 min read",
+    "href": "/services/taxation/fcra-compliance-five-obligations-2020"
+  },
+  {
+    "slug": "private-limited-vs-llp-startup-2025",
+    "category": "Advisory",
+    "date": "2025–2026",
+    "icon": "briefcase",
+    "title": "Private Limited vs LLP: Choosing the Right Structure for Your Startup in 2025",
+    "excerpt": "Tax treatment, compliance cadence, DPIIT recognition, Angel Tax under Section 56(2)(viib), ESOP eligibility, and investor readiness — a stru…",
+    "readTime": "12–14 min read",
+    "href": "/services/advisory/private-limited-vs-llp-startup-2025"
+  },
+  {
+    "slug": "msme-udyam-reclassification-trap",
+    "category": "Advisory",
+    "date": "2025–2026",
+    "icon": "briefcase",
+    "title": "Udyam Re-registration and the MSME Classification Trap: What Owners Must Know",
+    "excerpt": "Classification thresholds, re-registration triggers, benefit cessation timelines, and compliance alignment when turnover or investment cross…",
+    "readTime": "10–12 min read",
+    "href": "/services/advisory/msme-udyam-reclassification-trap"
+  },
+  {
+    "slug": "msmed-act-45-day-payment-rule",
+    "category": "Advisory",
+    "date": "2025–2026",
+    "icon": "briefcase",
+    "title": "MSMED Act & the 45-Day Payment Rule: How to Enforce Your Right to Timely Payment",
+    "excerpt": "A legal, tax, and enforcement framework for MSMEs, vendors, and buyers under the MSMED Act, 2006 and the Finance Act, 2023 amendment.",
+    "readTime": "10–12 min read",
+    "href": "/services/advisory/msmed-act-45-day-payment-rule"
+  },
+  {
+    "slug": "business-succession-plan-before-crisis",
+    "category": "Advisory",
+    "date": "2025–2026",
+    "icon": "briefcase",
+    "title": "Why Business Families Need a Succession Plan Before They Think They Do",
+    "excerpt": "Proactive Will planning, family trust structuring, business continuity frameworks, and Family Constitutions — before crisis forces reactive …",
+    "readTime": "11–13 min read",
+    "href": "/services/advisory/business-succession-plan-before-crisis"
+  },
+  {
+    "slug": "shareholder-agreements-indian-startups",
+    "category": "Advisory",
+    "date": "2025–2026",
+    "icon": "briefcase",
+    "title": "Shareholder Agreements for Indian Startups: Clauses That Protect Founders and Attract Investors",
+    "excerpt": "Anti-dilution, drag-along and tag-along, ROFR, vesting, reserved matters, and dispute resolution — essential SHA provisions before your firs…",
+    "readTime": "11–13 min read",
+    "href": "/services/advisory/shareholder-agreements-indian-startups"
+  },
+  {
+    "slug": "related-party-transactions-companies-act",
+    "category": "Advisory",
+    "date": "2025–2026",
+    "icon": "briefcase",
+    "title": "Related Party Transactions Under the Companies Act: Disclosure, Approval, and the Audit Committee's Role",
+    "excerpt": "Section 188 approval thresholds, audit committee review, Schedule V disclosure, and common governance failures in RPT compliance.",
+    "readTime": "10–12 min read",
+    "href": "/services/advisory/related-party-transactions-companies-act"
+  },
+  {
+    "slug": "huf-tax-succession-planning-2025",
+    "category": "Advisory",
+    "date": "2025–2026",
+    "icon": "briefcase",
+    "title": "HUF: Is It Still a Relevant Tax and Succession Planning Tool in 2025?",
+    "excerpt": "Income-splitting, separate PAN assessment, partition planning, Section 64 clubbing, and when HUF structures remain worth forming for Hindu f…",
+    "readTime": "10–12 min read",
+    "href": "/services/advisory/huf-tax-succession-planning-2025"
+  },
+  {
+    "slug": "csr-section-135-utilisation-certification",
+    "category": "Advisory",
+    "date": "2025–2026",
+    "icon": "briefcase",
+    "title": "CSR Under Section 135: Common Errors in Utilisation Certification and How to Avoid Them",
+    "excerpt": "Spending thresholds, eligible activities, administrative cap, impact assessment, independent practitioner certification, and UDIN discipline…",
+    "readTime": "10–12 min read",
+    "href": "/services/advisory/csr-section-135-utilisation-certification"
+  },
+  {
+    "slug": "four-labour-codes-implementation-status",
+    "category": "Advisory",
+    "date": "2025–2026",
+    "icon": "briefcase",
+    "title": "India's Four Labour Codes: Implementation Status, Compliance Gaps, and What Employers Must Prepare",
+    "excerpt": "Code on Wages, Industrial Relations Code, Code on Social Security, and OSH Code — state notification status, payroll impact, and employer re…",
+    "readTime": "14–16 min read",
+    "href": "/services/advisory/four-labour-codes-implementation-status"
+  },
+  {
+    "slug": "nri-property-transactions-india-fema-tds",
+    "category": "Advisory",
+    "date": "2025–2026",
+    "icon": "briefcase",
+    "title": "The NRI's Guide to Property Transactions in India: FEMA, TDS, and Repatriation — All in One Place",
+    "excerpt": "Purchase, sale, and rental of Indian property by NRIs — Section 195 TDS, capital gains under ITA 2025, FEMA repatriation limits, DTAA relief…",
+    "readTime": "22–26 min read",
+    "href": "/services/advisory/nri-property-transactions-india-fema-tds"
+  },
+  {
+    "slug": "india-entry-vehicle-subsidiary-liaison-branch-office",
+    "category": "Advisory",
+    "date": "2025–2026",
+    "icon": "briefcase",
+    "title": "Subsidiary, Liaison Office, or Branch Office: Choosing the Right India Entry Vehicle",
+    "excerpt": "A Regulatory, Tax, and Strategic Analysis for Foreign Companies Evaluating Commercial Presence in India Under FEMA, the Companies Act, 2013,…",
+    "readTime": "22–26 min read",
+    "href": "/services/advisory/india-entry-vehicle-subsidiary-liaison-branch-office"
+  },
+  {
+    "slug": "private-family-trust-india-structure-tax",
+    "category": "Advisory",
+    "date": "2025–2026",
+    "icon": "briefcase",
+    "title": "Private Family Trusts in India: When They Work, When They Don't, and How to Structure Them Right",
+    "excerpt": "A Legal, Tax, and Governance Framework for Business Families, HNIs, NRIs, and Professionals",
+    "readTime": "22–26 min read",
+    "href": "/services/advisory/private-family-trust-india-structure-tax"
+  },
+  {
+    "slug": "nri-capital-gains-property-ita-2025",
+    "category": "NRI",
+    "date": "2025–2026",
+    "icon": "globe",
+    "title": "NRI Capital Gains on Indian Property: What Changed Under the Income Tax Act, 2025",
+    "excerpt": "A comprehensive analysis of capital gains tax rates, indexation, TDS mechanics, repatriation compliance, exemption planning, and FEMA obliga…",
+    "readTime": "20–24 min read",
+    "href": "/services/nri/nri-capital-gains-property-ita-2025"
+  },
+  {
+    "slug": "nri-property-repatriation-fema-guide",
+    "category": "NRI",
+    "date": "2025–2026",
+    "icon": "globe",
+    "title": "Repatriating Property Sale Proceeds from India: A Step-by-Step FEMA and Tax Compliance Guide for NRIs",
+    "excerpt": "FEMA repatriation rules, NRO account routing, the USD 1 million annual limit, Forms 145 and 146, RBI approval, and common failure points whe…",
+    "readTime": "20–24 min read",
+    "href": "/services/nri/nri-property-repatriation-fema-guide"
+  },
+  {
+    "slug": "dtaa-mli-india-treaty-benefits-ppt",
+    "category": "NRI",
+    "date": "2025–2026",
+    "icon": "globe",
+    "title": "DTAA Benefits After the Multilateral Instrument: Has Your Treaty Changed? A Comprehensive Analysis of the MLI's Impact on India's Tax Treaties",
+    "excerpt": "Principal Purpose Test, Limitation of Benefits, Covered Tax Agreements, the notification controversy, key ITAT rulings, CBDT Circular No. 01…",
+    "readTime": "22–26 min read",
+    "href": "/services/nri/dtaa-mli-india-treaty-benefits-ppt"
+  },
+  {
+    "slug": "nri-rental-income-india-complete-guide",
+    "category": "NRI",
+    "date": "2025–2026",
+    "icon": "globe",
+    "title": "Rental Income from Indian Property: A Complete Compliance Guide for Non-Resident Indians",
+    "excerpt": "A comprehensive analysis of income-tax classification and deductions, TDS obligations, NRO account management, GST on commercial leases, FEM…",
+    "readTime": "20–24 min read",
+    "href": "/services/nri/nri-rental-income-india-complete-guide"
+  },
+  {
+    "slug": "budget-2022-gst",
+    "category": "GST & Indirect Tax",
+    "date": "February 06, 2022",
+    "icon": "receipt",
+    "title": "Budget 2022: GST Updates You Should Know",
+    "excerpt": "A summary of GST-related amendments introduced in the Finance Bill, 2022 and how they may affect registrations, returns, and day-to-day compliance.",
+    "readTime": "5 min read",
+    "href": "/blog-details/budget-2022-gst"
+  },
+  {
+    "slug": "indirect-taxation-basics",
+    "category": "GST & Indirect Tax",
+    "date": "June 10, 2023",
+    "icon": "receipt",
+    "title": "Basics of Indirect Taxation",
+    "excerpt": "Indirect taxes like GST and customs duties impact pricing and working capital. Learn the structure, compliance basics, and practical implications.",
+    "readTime": "5 min read",
+    "href": "/blog-details/indirect-taxation-basics"
+  },
+  {
+    "slug": "audit-assurance-updates",
+    "category": "Audit & Assurance",
+    "date": "August 05, 2023",
+    "icon": "landmark",
+    "title": "Recent Updates in Audit & Assurance",
+    "excerpt": "A practical view of recent audit and assurance updates and best practices to strengthen controls, reporting, and governance.",
+    "readTime": "6 min read",
+    "href": "/blog-details/audit-assurance-updates"
+  },
+  {
+    "slug": "budget-2022-direct-tax",
+    "category": "Direct Taxation",
+    "date": "February 06, 2022",
+    "icon": "newspaper",
+    "title": "Budget 2022: Direct Tax Highlights",
+    "excerpt": "Clarification on cess/surcharge treatment and key direct tax updates introduced in Budget 2022—what businesses should watch and how to stay compliant.",
+    "readTime": "6 min read",
+    "href": "/blog-details/budget-2022-direct-tax"
+  },
+  {
+    "slug": "budget-2022-vda",
+    "category": "Direct Taxation",
+    "date": "February 06, 2022",
+    "icon": "newspaper",
+    "title": "Budget 2022: Virtual Digital Assets (VDA) Taxation",
+    "excerpt": "Virtual digital assets gained massive traction—Budget 2022 introduced a specific taxation framework. Here’s what it means for transactions and reporting.",
+    "readTime": "6 min read",
+    "href": "/blog-details/budget-2022-vda"
+  },
+  {
+    "slug": "direct-taxation-overview",
+    "category": "Direct Taxation",
+    "date": "May 15, 2023",
+    "icon": "newspaper",
+    "title": "Understanding Direct Taxation in India",
+    "excerpt": "Direct taxes are levied directly on individuals and organizations. This overview covers key concepts, compliance requirements, and common pitfalls.",
+    "readTime": "6 min read",
+    "href": "/blog-details/direct-taxation-overview"
+  },
+  {
+    "slug": "startup-structure-entity-choice",
+    "category": "Advisory",
+    "date": "November 18, 2024",
+    "icon": "briefcase",
+    "title": "Private Limited vs LLP: Choosing the Right Structure for Your Startup",
+    "excerpt": "How entity selection affects compliance load, fund-raising, DPIIT recognition, and tax—what founders should align before first investment.",
+    "readTime": "6 min read",
+    "href": "/blog-details/startup-structure-entity-choice"
+  },
+  {
+    "slug": "msme-udyam-reclassification",
+    "category": "Advisory",
+    "date": "September 04, 2024",
+    "icon": "briefcase",
+    "title": "Udyam Re-registration: Classification and Compliance Boundaries",
+    "excerpt": "MSME thresholds and reclassification rules affect benefits and filings. A short guide for owners monitoring turnover and investment limits.",
+    "readTime": "6 min read",
+    "href": "/blog-details/msme-udyam-reclassification"
+  },
+  {
+    "slug": "nri-tax-planning-basics",
+    "category": "NRI",
+    "date": "September 12, 2023",
+    "icon": "globe",
+    "title": "NRI Taxation: Key Considerations",
+    "excerpt": "A brief guide to tax implications for NRIs, DTAA benefits, and compliance requirements for non-resident Indians.",
+    "readTime": "6 min read",
+    "href": "/blog-details/nri-tax-planning-basics"
+  }
+];
+
+export const SITE_ORIGIN = 'https://sspartners.in'
 
 export function getBlogBySlug(slug: string) {
   return blogs.find((post) => post.slug === slug)
+}
+
+export function getBlogUrl(slug: string, origin = SITE_ORIGIN) {
+  const post = getBlogBySlug(slug)
+  return post ? `${origin}${post.href}` : null
 }
 
 export function getHandbookBySlug(slug: string) {

@@ -1,21 +1,14 @@
-import {
-  Landmark,
-  Newspaper,
-  Receipt,
-  type LucideIcon,
-} from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { BlogCardList } from '../blog/BlogCardList'
 import { blogSection, blogs } from '../../data/content'
 import { Container } from '../ui/Container'
-import { ContentCard } from '../ui/ContentCard'
 import { SectionLabel } from '../ui/SectionLabel'
 
-const iconMap: Record<string, LucideIcon> = {
-  newspaper: Newspaper,
-  receipt: Receipt,
-  landmark: Landmark,
-}
+const HOME_BLOG_LIMIT = 6
 
 export function Blogs() {
+  const featuredBlogs = blogs.slice(0, HOME_BLOG_LIMIT)
+
   return (
     <section id="blogs" className="section-block bg-white">
       <Container>
@@ -24,20 +17,17 @@ export function Blogs() {
           description={blogSection.description}
         />
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {blogs.map((post) => (
-            <ContentCard
-              key={post.slug}
-              to={`/blog/${post.slug}`}
-              icon={iconMap[post.icon]}
-              meta={`${post.category} · ${post.date}`}
-              title={post.title}
-              subtitle={post.readTime}
-              description={post.excerpt}
-              cta="Read more"
-            />
-          ))}
+        <div className="mt-12">
+          <BlogCardList posts={featuredBlogs} />
         </div>
+
+        {blogs.length > HOME_BLOG_LIMIT && (
+          <div className="mt-10 flex items-center justify-center">
+            <Link to="/blogs" className="btn-primary">
+              View all blogs
+            </Link>
+          </div>
+        )}
       </Container>
     </section>
   )
