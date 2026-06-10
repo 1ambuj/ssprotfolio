@@ -7,9 +7,13 @@ export function Layout() {
   const location = useLocation()
 
   useEffect(() => {
-    if (!location.hash) return
-    const target = document.querySelector(location.hash)
-    target?.scrollIntoView({ behavior: 'smooth' })
+    if (location.hash) {
+      const target = document.querySelector(location.hash)
+      target?.scrollIntoView({ behavior: 'smooth' })
+      return
+    }
+
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
   }, [location.pathname, location.hash])
 
   return (
