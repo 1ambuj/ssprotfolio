@@ -1,0 +1,312 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ink: var(--ink);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-surface: var(--surface);
+
+  --font-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-display: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  --text-hero: clamp(2.5rem, 5.5vw, 4.25rem);
+  --text-lead: clamp(1rem, 1.8vw, 1.125rem);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0.995 0.004 250);
+  --surface: oklch(0.97 0.008 250);
+  --foreground: oklch(0.39 0.04 250);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.21 0.04 260);
+  --primary: oklch(0.42 0.09 254);
+  --primary-foreground: oklch(0.985 0.003 248);
+  --ink: oklch(0.21 0.04 260);
+  --gold: oklch(0.74 0.13 80);
+  --gold-soft: oklch(0.92 0.07 85);
+  --secondary: oklch(0.97 0.01 250);
+  --secondary-foreground: oklch(0.21 0.04 260);
+  --muted: oklch(0.975 0.006 250);
+  --muted-foreground: oklch(0.5 0.03 255);
+  --accent: oklch(0.74 0.13 80);
+  --accent-foreground: oklch(0.21 0.04 260);
+  --border: oklch(0.92 0.01 255);
+  --input: oklch(0.92 0.01 255);
+  --ring: oklch(0.42 0.09 254);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.65;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    font-variation-settings: 'opsz' 16;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+}
+
+@utility font-serif {
+  font-family: var(--font-serif);
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+}
+
+@utility page-gradient {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, oklch(0.96 0.025 250) 0%, transparent 55%),
+    linear-gradient(180deg, oklch(0.985 0.006 250) 0%, white 100%);
+}
+
+@utility section-surface {
+  background-color: var(--surface);
+}
+
+@utility font-body {
+  font-family: var(--font-sans);
+}
+
+@utility text-hero {
+  font-size: var(--text-hero);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+@utility text-lead {
+  font-size: var(--text-lead);
+  line-height: 1.6;
+}
+
+@utility text-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Hero text ↔ portrait: ~80px tablet → ~200px large desktop */
+@utility hero-column-gap {
+  gap: clamp(3.5rem, 15vw + 2rem, 14.5rem);
+}
+
+@keyframes cursor-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.typewriter-cursor {
+  height: 0.85em;
+  background-color: currentColor;
+  animation: cursor-blink 1s step-end infinite;
+}
+
+.typewriter-cursor--done {
+  animation: cursor-blink 1.2s step-end 3;
+  animation-fill-mode: forwards;
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@utility glass-card {
+  background: color-mix(in oklab, white 70%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid color-mix(in oklab, var(--ink) 8%, transparent);
+}
+
+@keyframes aurora-pan {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--gold) 45%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 18px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility aurora-text {
+  background: linear-gradient(
+    100deg,
+    var(--ink) 0%,
+    var(--primary) 30%,
+    var(--gold) 50%,
+    var(--primary) 70%,
+    var(--ink) 100%
+  );
+  background-size: 220% 220%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: aurora-pan 8s ease-in-out infinite;
+}
+
+@utility animate-float {
+  animation: float-y 6s ease-in-out infinite;
+}
+
+@utility animate-pulse-ring {
+  animation: pulse-ring 2.2s ease-out infinite;
+}
+
+@utility animate-marquee {
+  animation: marquee-scroll 30s linear infinite;
+}
+
+@utility shine-on-hover {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.shine-on-hover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 30%,
+    color-mix(in oklab, white 55%, transparent) 50%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.9s ease;
+  pointer-events: none;
+}
+
+.shine-on-hover:hover::after {
+  transform: translateX(120%);
+}
+
+@utility spotlight {
+  position: relative;
+  isolation: isolate;
+}
+
+.spotlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    320px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in oklab, var(--gold) 22%, transparent),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.spotlight:hover::before {
+  opacity: 1;
+}
+
+@utility grid-bg {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--ink) 7%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--ink) 7%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
+}

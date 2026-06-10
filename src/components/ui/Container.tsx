@@ -1,0 +1,16 @@
+import { cn } from '../../lib/cn'
+
+export function Container({
+  className,
+  children,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div
+      className={cn('mx-auto max-w-7xl ', className)}
+      {...props}
+    >
+      {children}
+    </div>
+  )
+}
