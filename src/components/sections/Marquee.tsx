@@ -6,9 +6,9 @@ export function Marquee() {
   const items = [...marqueeItems, ...marqueeItems]
 
   return (
-    <section className="section-surface border-y border-ink/6 py-8">
+    <section className="border-y border-ink/[0.05] bg-surface/60 py-8 md:py-10">
       <Container>
-        <p className="mb-5 text-center font-body text-[11px] tracking-[0.2em] text-foreground/45 uppercase">
+        <p className="mb-5 text-center text-label text-foreground/40">
           Trusted by leaders featured in
         </p>
       </Container>
@@ -17,10 +17,10 @@ export function Marquee() {
           {items.map((text, i) => (
             <div
               key={`${text}-${i}`}
-              className="flex items-center gap-10 font-display text-sm font-medium text-foreground/35"
+              className="flex items-center gap-10 font-display text-sm font-medium tracking-tight text-foreground/30"
             >
               {text}
-              <span className="h-1 w-1 rounded-full bg-foreground/20" />
+              <span className="h-1 w-1 rounded-full bg-foreground/15" />
             </div>
           ))}
         </MarqueeTrack>

@@ -37,7 +37,7 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0.75rem;
   --background: oklch(0.995 0.004 250);
   --surface: oklch(0.97 0.008 250);
   --foreground: oklch(0.39 0.04 250);
@@ -78,6 +78,11 @@
     font-variation-settings: 'opsz' 16;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--primary) 18%, white);
+    color: var(--ink);
   }
 
   h1,
@@ -137,6 +142,60 @@
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+@utility section-padding {
+  padding-block: clamp(5rem, 9vw, 7.5rem);
+}
+
+@utility section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.25rem, 4.5vw, 3.125rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  font-weight: 400;
+  text-wrap: balance;
+}
+
+@utility section-muted {
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--surface) 80%, white) 0%,
+    var(--background) 100%
+  );
+}
+
+@utility surface-card {
+  border-radius: 1.25rem;
+  border: 1px solid color-mix(in oklab, var(--ink) 5%, transparent);
+  background: var(--card);
+  box-shadow:
+    0 1px 2px color-mix(in oklab, var(--ink) 3%, transparent),
+    0 16px 48px -12px color-mix(in oklab, var(--ink) 7%, transparent);
+}
+
+@utility input-field {
+  width: 100%;
+  border-radius: 0.875rem;
+  border: 1px solid color-mix(in oklab, var(--ink) 10%, transparent);
+  background: color-mix(in oklab, var(--background) 92%, var(--surface));
+  padding: 0.75rem 1rem;
+  color: var(--ink);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.input-field::placeholder {
+  color: color-mix(in oklab, var(--foreground) 40%, transparent);
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: color-mix(in oklab, var(--primary) 35%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--primary) 12%, transparent);
+  background: var(--background);
 }
 
 /* Hero text ↔ portrait: ~80px tablet → ~200px large desktop */

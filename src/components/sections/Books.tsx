@@ -1,59 +1,62 @@
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { books, site } from '../../data/content'
-import { Reveal, SectionEyebrow } from '../site/Reveal'
+import { Reveal } from '../site/Reveal'
+import { SectionHeader } from '../site/SectionHeader'
 import { Container } from '../ui/Container'
 import { cn } from '../../lib/cn'
 
 export function Books() {
   return (
-    <section id="books" className="py-24 md:py-32">
+    <section id="books" className="section-padding">
       <Container>
-        <div className="mb-16 flex flex-wrap items-end justify-between gap-6">
-          <div className="max-w-xl">
-            <Reveal>
-              <SectionEyebrow>Books & publications</SectionEyebrow>
-              <h2 className="mt-5 text-4xl leading-[1.05] font-bold text-ink md:text-5xl">
-                Words that travel beyond the boardroom.
-              </h2>
-            </Reveal>
-          </div>
+        <div className="mb-14 flex flex-wrap items-end justify-between gap-6 md:mb-16">
+          <SectionHeader
+            eyebrow="Books & publications"
+            title="Words that travel beyond the boardroom."
+            className="max-w-xl"
+          />
           <a
             href="#"
-            className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-ink"
+            className="group inline-flex items-center gap-2 font-body text-sm font-medium text-primary transition-colors hover:text-ink"
           >
             View full bibliography
-            <ArrowUpRight size={14} />
+            <ArrowUpRight
+              size={14}
+              className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
           </a>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-3 md:gap-8">
           {books.map((book, i) => (
             <Reveal key={book.title} delay={i * 0.1}>
-              <article className="group h-full rounded-3xl border border-ink/10 bg-background p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl">
+              <article className="surface-card group h-full overflow-hidden p-2 transition-all duration-300 hover:-translate-y-1">
                 <div
                   className={cn(
-                    'shine-on-hover relative flex aspect-3/4 flex-col justify-between overflow-hidden rounded-2xl bg-linear-to-br p-7',
+                    'shine-on-hover relative flex aspect-3/4 flex-col justify-between overflow-hidden rounded-[1rem] bg-linear-to-br p-7',
                     book.gradient,
                   )}
                 >
-                  <div className="flex items-center justify-between text-xs tracking-widest text-white/80 uppercase">
+                  <div className="flex items-center justify-between text-label text-white/80">
                     <span>{book.tag}</span>
                     <span>{book.year}</span>
                   </div>
                   <div className="text-white">
-                    <div className="mb-4 h-px w-10 bg-gold" />
-                    <h3 className="font-display text-2xl leading-tight font-semibold">
+                    <div className="mb-4 h-px w-10 bg-gold/80" />
+                    <h3 className="font-display text-2xl leading-tight font-semibold tracking-tight">
                       {book.title}
                     </h3>
-                    <p className="mt-2 text-sm text-white/75">{book.subtitle}</p>
+                    <p className="mt-2 font-body text-sm text-white/75">
+                      {book.subtitle}
+                    </p>
                   </div>
                   <div className="absolute -right-6 -bottom-6 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
                 </div>
-                <div className="mt-5 flex items-center justify-between">
-                  <span className="text-sm text-foreground/70">
+                <div className="flex items-center justify-between px-4 py-4">
+                  <span className="font-body text-sm text-foreground/60">
                     By {site.name}
                   </span>
-                  <span className="inline-flex items-center gap-1 text-sm font-medium text-primary transition-all group-hover:gap-2">
+                  <span className="inline-flex items-center gap-1 font-body text-sm font-medium text-primary transition-all group-hover:gap-2">
                     Read
                     <ArrowRight size={14} />
                   </span>

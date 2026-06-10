@@ -59,7 +59,7 @@ function HeroContent({
   return (
     <div className={className}>
       <FadeUp delay={0.05}>
-        <span className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3.5 py-1.5 font-body text-[10px] font-semibold tracking-[0.16em] text-primary uppercase ring-1 ring-ink/[0.06] backdrop-blur-sm">
+        <span className="text-label inline-flex items-center gap-2 rounded-full bg-white/85 px-3.5 py-1.5 text-primary ring-1 ring-ink/[0.06] backdrop-blur-sm">
           <span className="h-1 w-1 rounded-full bg-primary" />
           {hero.badge}
         </span>

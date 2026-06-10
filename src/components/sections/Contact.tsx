@@ -1,7 +1,8 @@
 import { useState, type FormEvent } from 'react'
 import { ArrowRight, CheckCircle2, Mail, MapPin, Phone } from 'lucide-react'
 import { contact, site } from '../../data/content'
-import { Reveal, SectionEyebrow } from '../site/Reveal'
+import { Reveal } from '../site/Reveal'
+import { SectionHeader } from '../site/SectionHeader'
 import { Container } from '../ui/Container'
 import { Field } from '../ui/Field'
 
@@ -20,37 +21,40 @@ export function Contact() {
   ]
 
   return (
-    <section id="contact" className="bg-secondary/40 py-24 md:py-32">
-      <Container className="grid gap-12 lg:grid-cols-12">
+    <section id="contact" className="section-padding border-t border-ink/[0.05]">
+      <Container className="grid gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-5">
-          <Reveal>
-            <SectionEyebrow>{contact.eyebrow}</SectionEyebrow>
-            <h2 className="mt-5 text-4xl leading-[1.05] font-bold text-ink md:text-5xl">
-              {contact.heading}
-            </h2>
-            <p className="mt-6 text-lg leading-relaxed text-foreground/80">
-              {contact.description}
-            </p>
+          <SectionHeader
+            eyebrow={contact.eyebrow}
+            title={contact.heading}
+            description={contact.description}
+          />
 
-            <div className="mt-10 space-y-5">
+          <Reveal delay={0.1}>
+            <div className="mt-10 space-y-4">
               {contactDetails.map((item) => (
-                <div key={item.label} className="flex items-start gap-4">
-                  <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary">
-                    <item.icon size={18} />
+                <div
+                  key={item.label}
+                  className="surface-card flex items-start gap-4 p-4"
+                >
+                  <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary/8 text-primary">
+                    <item.icon size={18} strokeWidth={1.75} />
                   </div>
                   <div>
-                    <div className="text-xs tracking-widest text-foreground/55 uppercase">
+                    <div className="text-label text-foreground/50">
                       {item.label}
                     </div>
                     {item.href ? (
                       <a
                         href={item.href}
-                        className="font-medium text-ink hover:text-primary"
+                        className="mt-1 block font-body text-sm font-medium text-ink transition-colors hover:text-primary"
                       >
                         {item.value}
                       </a>
                     ) : (
-                      <div className="font-medium text-ink">{item.value}</div>
+                      <div className="mt-1 font-body text-sm font-medium text-ink">
+                        {item.value}
+                      </div>
                     )}
                   </div>
                 </div>
@@ -63,7 +67,7 @@ export function Contact() {
           <Reveal delay={0.1}>
             <form
               onSubmit={handleSubmit}
-              className="rounded-3xl border border-ink/10 bg-background p-8 shadow-sm md:p-10"
+              className="surface-card rounded-3xl p-7 md:p-9"
             >
               <div className="grid gap-5 sm:grid-cols-2">
                 <Field label="Full name" name="name" placeholder="Your name" />
@@ -82,10 +86,16 @@ export function Contact() {
               </div>
 
               <div className="mt-5">
-                <label className="text-xs tracking-widest text-foreground/60 uppercase">
+                <label
+                  htmlFor="service"
+                  className="text-label text-foreground/55"
+                >
                   Service of interest
                 </label>
-                <select className="mt-2 w-full rounded-xl border border-ink/15 bg-background px-4 py-3 text-ink focus:ring-2 focus:ring-primary/30 focus:outline-none">
+                <select
+                  id="service"
+                  className="input-field font-body mt-2 text-sm"
+                >
                   {contact.services.map((s) => (
                     <option key={s}>{s}</option>
                   ))}
@@ -93,24 +103,28 @@ export function Contact() {
               </div>
 
               <div className="mt-5">
-                <label className="text-xs tracking-widest text-foreground/60 uppercase">
+                <label
+                  htmlFor="message"
+                  className="text-label text-foreground/55"
+                >
                   Briefly, how can I help?
                 </label>
                 <textarea
+                  id="message"
                   rows={5}
                   placeholder="Tell me about your business and what you're solving for…"
-                  className="mt-2 w-full resize-none rounded-xl border border-ink/15 bg-background px-4 py-3 text-ink focus:ring-2 focus:ring-primary/30 focus:outline-none"
+                  className="input-field font-body mt-2 resize-none text-sm"
                 />
               </div>
 
               <div className="mt-7 flex flex-wrap items-center justify-between gap-4">
-                <div className="flex items-center gap-2 text-sm text-foreground/65">
+                <div className="flex items-center gap-2 font-body text-sm text-foreground/60">
                   <CheckCircle2 size={16} className="text-primary" />
                   {contact.confidentiality}
                 </div>
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-medium text-white transition-colors hover:bg-primary"
+                  className="inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 font-body text-sm font-medium text-white shadow-[0_6px_20px_rgba(15,23,42,0.18)] transition-all hover:bg-primary hover:shadow-[0_8px_24px_rgba(38,76,126,0.28)]"
                 >
                   {sent ? "Thank you — I'll be in touch" : 'Request consultation'}
                   <ArrowRight size={16} />

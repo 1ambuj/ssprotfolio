@@ -36,23 +36,25 @@ export function Navbar() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
         >
-          <Container className="flex h-14 items-center gap-4 px-4 md:h-16 md:px-6">
+          <Container className="flex h-14 items-center gap-4 md:h-16">
             <a href="#top" className="flex shrink-0 items-center gap-2.5">
-              <span className="grid h-9 w-9 place-items-center rounded-lg bg-primary font-display text-sm font-semibold text-white">
+              <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary font-display text-sm font-semibold text-white shadow-[0_4px_14px_color-mix(in_oklab,var(--primary)_35%,transparent)]">
                 {site.shortName}
               </span>
-              <span className="font-serif text-lg text-ink">{site.name}</span>
+              <span className="font-serif text-lg tracking-tight text-ink">
+                {site.name}
+              </span>
             </a>
 
             <nav
-              className="mx-auto hidden items-center gap-8 lg:flex"
+              className="mx-auto hidden items-center gap-1 lg:flex"
               aria-label="Main navigation"
             >
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="font-body text-sm text-foreground/65 transition-colors hover:text-ink"
+                  className="rounded-full px-3.5 py-2 font-body text-sm text-foreground/60 transition-colors hover:bg-ink/[0.04] hover:text-ink"
                 >
                   {link.label}
                 </a>
@@ -61,7 +63,7 @@ export function Navbar() {
 
             <a
               href="#contact"
-              className="group ml-auto hidden items-center gap-2 rounded-full bg-ink px-5 py-2.5 font-body text-sm font-medium text-white transition-colors hover:bg-primary lg:inline-flex"
+              className="group ml-auto hidden items-center gap-2 rounded-full bg-ink px-5 py-2.5 font-body text-sm font-medium text-white shadow-[0_6px_20px_rgba(15,23,42,0.18)] transition-all hover:bg-primary hover:shadow-[0_8px_24px_rgba(38,76,126,0.28)] lg:inline-flex"
             >
               Contact
               <ArrowRight

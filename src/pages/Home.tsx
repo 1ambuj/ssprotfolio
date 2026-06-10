@@ -14,7 +14,7 @@ import { Testimonials } from '../components/sections/Testimonials'
 
 export function Home() {
   return (
-    <div id="top" className="min-h-screen bg-white text-foreground">
+    <div id="top" className="min-h-screen bg-background text-foreground">
       <ScrollProgress />
       <Navbar />
       <main>

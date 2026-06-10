@@ -46,7 +46,7 @@ export function SectionEyebrow({
   return (
     <div
       className={cn(
-        'inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.18em]',
+        'inline-flex items-center gap-3 text-label font-medium',
         light ? 'text-gold' : 'text-primary',
         className,
       )}

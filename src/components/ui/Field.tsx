@@ -13,10 +13,7 @@ export function Field({
 }: FieldProps) {
   return (
     <div>
-      <label
-        htmlFor={name}
-        className="text-xs uppercase tracking-widest text-foreground/60"
-      >
+      <label htmlFor={name} className="text-label text-foreground/55">
         {label}
       </label>
       <input
@@ -24,7 +21,7 @@ export function Field({
         name={name}
         type={type}
         placeholder={placeholder}
-        className="mt-2 w-full rounded-xl border border-ink/15 bg-background px-4 py-3 text-ink placeholder:text-foreground/40 focus:outline-none focus:ring-2 focus:ring-primary/30"
+        className="input-field font-body mt-2 text-sm"
       />
     </div>
   )
