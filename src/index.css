@@ -231,3 +231,110 @@
   box-shadow: 0 1px 12px color-mix(in oklab, var(--ink) 4%, transparent);
 }
 
+.credentials-section {
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border);
+}
+
+@media (min-width: 768px) {
+  .credentials-section {
+    margin-top: 3.5rem;
+    padding-top: 3rem;
+  }
+}
+
+.credentials-section__groups {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.credential-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.625rem;
+  list-style: none;
+  padding: 0;
+}
+
+@media (min-width: 640px) {
+  .credential-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .credential-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.875rem;
+  }
+}
+
+.credential-tile {
+  border-radius: 0.625rem;
+  border: 1px solid var(--border);
+  background: white;
+  padding: 0.25rem;
+  min-height: 5.5rem;
+}
+
+.credential-tile--cert {
+  border-color: color-mix(in oklab, var(--accent-orange) 18%, var(--border));
+  background: color-mix(in oklab, var(--gold-soft) 70%, white);
+}
+
+.credential-tile__inner {
+  display: flex;
+  height: 100%;
+  min-height: 5rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-radius: 0.4375rem;
+  background: white;
+  padding: 0.75rem 0.625rem;
+}
+
+.credential-tile--cert .credential-tile__inner {
+  background: color-mix(in oklab, white 92%, var(--gold-soft));
+}
+
+.credential-tile__tag {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  color: var(--accent-orange);
+}
+
+.credential-tile__label {
+  margin-top: 0.375rem;
+  flex: 1;
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  color: color-mix(in oklab, var(--foreground) 82%, transparent);
+}
+
+@media (min-width: 640px) {
+  .credential-tile {
+    min-height: 6rem;
+  }
+
+  .credential-tile__inner {
+    min-height: 5.5rem;
+    padding: 0.875rem 0.75rem;
+  }
+
+  .credential-tile__tag {
+    font-size: 0.8125rem;
+  }
+
+  .credential-tile__label {
+    font-size: 0.75rem;
+  }
+}

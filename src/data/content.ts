@@ -192,7 +192,7 @@ export const blogs: PortfolioBlog[] = [
     "title": "TDS on Partners' Salary & Remuneration from a Firm: Section 194T — A Complete Compliance Analysis",
     "excerpt": "Section 40(b), the Capital Account Credit Trigger, Penalty Framework, and Worked Illustrations for Partnership Firms and LLPs",
     "readTime": "25–30 min read",
-    "href": "/services/taxation/section-194t-tds-partner-remuneration-firm"
+    "href": "https://www.sspartners.in/blog/tds-on-partner-s-salary-remuneration-from-a-firm-section-194t"
   },
   {
     "slug": "ita-2025-rnpo-framework-charitable-trusts",
@@ -202,7 +202,7 @@ export const blogs: PortfolioBlog[] = [
     "title": "The RNPO Framework Under the Income Tax Act, 2025: What Every Charitable Trust Needs to Know Now",
     "excerpt": "Registered Non-Profit Organisations — Sections 332–355: registration under Section 332, transition from 12A/12AB/10(23C), the three-layer in…",
     "readTime": "22–26 min read",
-    "href": "/services/taxation/ita-2025-rnpo-framework-charitable-trusts"
+    "href": "https://www.sspartners.in/services/taxation/ita-2025-rnpo-framework-charitable-trusts"
   },
   {
     "slug": "ita-2025-rnpo-85-percent-application-rule",
@@ -476,7 +476,7 @@ export const blogs: PortfolioBlog[] = [
   }
 ];
 
-export const SITE_ORIGIN = 'https://sspartners.in'
+export const SITE_ORIGIN = 'https://www.sspartners.in'
 
 export function getBlogBySlug(slug: string) {
   return blogs.find((post) => post.slug === slug)
@@ -484,7 +484,21 @@ export function getBlogBySlug(slug: string) {
 
 export function getBlogUrl(slug: string, origin = SITE_ORIGIN) {
   const post = getBlogBySlug(slug)
-  return post ? `${origin}${post.href}` : null
+  if (!post) return null
+
+  if (/^https?:\/\//.test(post.href)) {
+    return post.href
+  }
+
+  if (post.href.startsWith('/blog/')) {
+    return `${origin}${post.href}`
+  }
+
+  if (post.href.startsWith('/blog-details/')) {
+    return `${origin}${post.href.replace('/blog-details/', '/blog/')}`
+  }
+
+  return `${origin}/blog/${post.slug}`
 }
 
 export function getHandbookBySlug(slug: string) {

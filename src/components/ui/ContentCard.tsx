@@ -5,6 +5,7 @@ import { cn } from '../../lib/cn'
 interface ContentCardProps {
   to?: string
   href?: string
+  newTab?: boolean
   icon: LucideIcon
   meta?: string
   title: string
@@ -17,6 +18,7 @@ interface ContentCardProps {
 export function ContentCard({
   to,
   href,
+  newTab = true,
   icon: Icon,
   meta,
   title,
@@ -77,8 +79,8 @@ export function ContentCard({
   return (
     <a
       href={href}
-      target="_blank"
-      rel="noopener noreferrer"
+      target={newTab ? '_blank' : undefined}
+      rel={newTab ? 'noopener noreferrer' : undefined}
       className={cardClass}
     >
       {body}

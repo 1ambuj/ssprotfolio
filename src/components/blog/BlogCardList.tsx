@@ -6,7 +6,7 @@ import {
   Receipt,
   type LucideIcon,
 } from 'lucide-react'
-import type { PortfolioBlog } from '../../data/content'
+import { getBlogUrl, type PortfolioBlog } from '../../data/content'
 import { ContentCard } from '../ui/ContentCard'
 
 const iconMap: Record<string, LucideIcon> = {
@@ -25,7 +25,8 @@ export function BlogCardList({ posts }: { posts: PortfolioBlog[] }) {
       {posts.map((post) => (
         <ContentCard
           key={post.slug}
-          to={`/blog/${post.slug}`}
+          href={getBlogUrl(post.slug) ?? post.href}
+          newTab={false}
           icon={iconMap[post.icon] ?? fallbackIcon}
           meta={`${post.category} · ${post.date}`}
           title={post.title}

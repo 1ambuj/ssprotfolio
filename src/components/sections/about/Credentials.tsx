@@ -1,67 +1,91 @@
+import type { ReactNode } from 'react'
 import { profile } from '../../../data/content'
 
 function formatCertDetail(issuer: string) {
   return issuer.replace(/^ICAI Certification — /, '')
 }
 
-function CredentialColumn({
-  heading,
-  items,
+function SectionBlock({
+  id,
+  label,
+  children,
 }: {
-  heading: string
-  items: { tag: string; text: string }[]
+  id: string
+  label: string
+  children: ReactNode
 }) {
   return (
-    <div className="px-5 py-5 md:px-6 md:py-6">
-      <h4 className="font-body text-[11px] font-semibold uppercase tracking-[0.12em] text-foreground/50">
-        {heading}
-      </h4>
-      <dl className="mt-4">
-        {items.map((item) => (
-          <div
-            key={item.tag + item.text}
-            className="grid grid-cols-[minmax(3.5rem,5.75rem)_1fr] gap-x-4 border-b border-border py-3.5 last:border-b-0"
-          >
-            <dt className="pt-px font-display text-xs font-bold leading-snug tracking-wide text-accent-orange sm:text-[13px]">
-              {item.tag}
-            </dt>
-            <dd className="font-body text-sm leading-relaxed text-foreground/85">
-              {item.text}
-            </dd>
-          </div>
-        ))}
-      </dl>
-    </div>
+    <section aria-labelledby={id} className="w-full">
+      <div className="flex items-center gap-2.5">
+        <span className="h-px w-6 bg-accent-orange" aria-hidden="true" />
+        <h4
+          id={id}
+          className="font-body text-[11px] font-semibold uppercase tracking-[0.12em] text-foreground/50"
+        >
+          {label}
+        </h4>
+      </div>
+      {children}
+    </section>
+  )
+}
+
+function CredentialTile({
+  tag,
+  label,
+  variant = 'cert',
+}: {
+  tag: string
+  label: string
+  variant?: 'cert' | 'member'
+}) {
+  return (
+    <li
+      className={
+        variant === 'cert' ? 'credential-tile credential-tile--cert' : 'credential-tile'
+      }
+    >
+      <div className="credential-tile__inner">
+        <p className="credential-tile__tag">{tag}</p>
+        <p className="credential-tile__label">{label}</p>
+      </div>
+    </li>
   )
 }
 
 export function Credentials() {
   return (
-    <div className="mt-12 border-t border-border pt-10 md:mt-14 md:pt-12">
-      <div className="overflow-hidden rounded-2xl border border-border bg-surface">
-        <div className="border-b border-border px-5 py-4 md:px-6">
-          <h3 className="font-display text-lg font-semibold text-ink">
-            {profile.credentialsTitle}
-          </h3>
-        </div>
+    <div className="credentials-section">
+      <h3 className="font-display text-lg font-semibold text-ink">
+        {profile.credentialsTitle}
+      </h3>
 
-        <div className="grid divide-y divide-border md:grid-cols-2 md:divide-x md:divide-y-0">
-          <CredentialColumn
-            heading={profile.certificationsHeading}
-            items={profile.certifications.map((cert) => ({
-              tag: cert.title,
-              text: formatCertDetail(cert.issuer),
-            }))}
-          />
+      <div className="credentials-section__groups">
+        <SectionBlock id="certifications-heading" label={profile.certificationsHeading}>
+          <ul className="credential-grid">
+            {profile.certifications.map((cert) => (
+              <CredentialTile
+                key={cert.title}
+                variant="cert"
+                tag={cert.title}
+                label={formatCertDetail(cert.issuer)}
+              />
+            ))}
+          </ul>
+        </SectionBlock>
 
-          <CredentialColumn
-            heading={profile.membershipsHeading}
-            items={profile.memberships.map((item) => ({
-              tag: item.issuer,
-              text: item.title,
-            }))}
-          />
-        </div>
+        <SectionBlock id="memberships-heading" label={profile.membershipsHeading}>
+          <ul className="credential-grid">
+            {profile.memberships.map((item) => (
+              <CredentialTile
+                key={item.title}
+                variant="member"
+                tag={item.issuer}
+                label={item.title}
+              />
+            ))}
+          </ul>
+        </SectionBlock>
       </div>
     </div>
   )
