@@ -4,7 +4,7 @@ export const site = {
   shortName: 'SS',
   qualifications: 'B.Com, FCA, LLB',
   title: 'Managing Partner | Sandeep Singla & Associates',
-  email: 'info@sspartners.in',
+  email: 'sandeep@sspartners.in',
   phone: '+91-9560181790',
   address:
     'E-127, Ground Floor, Sushant Shopping Arcade, Sushant Lok-1, Gurgaon - 122009, Haryana',

@@ -26,7 +26,7 @@ export function BlogCardList({ posts }: { posts: PortfolioBlog[] }) {
         <ContentCard
           key={post.slug}
           href={getBlogUrl(post.slug) ?? post.href}
-          newTab={false}
+          newTab
           icon={iconMap[post.icon] ?? fallbackIcon}
           meta={`${post.category} · ${post.date}`}
           title={post.title}
