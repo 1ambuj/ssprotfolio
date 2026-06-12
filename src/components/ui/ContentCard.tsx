@@ -58,7 +58,7 @@ export function ContentCard({
         {description}
       </p>
 
-      <span className="mt-6 inline-flex items-center gap-1.5 font-display text-xs font-semibold tracking-wide text-accent-orange uppercase">
+      <span className="mt-6 inline-flex items-center gap-1.5 font-body text-xs font-semibold tracking-wide text-accent-orange uppercase">
         {cta}
         <ArrowRight
           size={14}

@@ -21,8 +21,8 @@
   --color-border: var(--border);
   --color-muted: var(--muted);
 
-  --font-display: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Syne', sans-serif;
+  --font-sans: 'DM Sans', sans-serif;
 }
 
 /* Brand palette — navy ink, warm orange accent, cream surfaces */
@@ -31,7 +31,7 @@
   --background: #fafaf9;
   --surface: #f5f3ef;
   --card: #ffffff;
-  --foreground: #475569;
+  --foreground: #65645f;
   --ink: #1a2332;
   --primary: #1e3a5f;
   --accent-orange: #fa6400;
@@ -48,6 +48,7 @@
   padding: 1rem 2rem;
   border-radius: 0.5rem;
   text-decoration: none;
+  font-family: var(--font-sans);
   font-weight: 500;
   font-size: 0.875rem;
 }
@@ -73,8 +74,8 @@
     background-color: var(--background);
     color: var(--foreground);
     font-family: var(--font-sans);
-    font-size: 15px;
-    line-height: 1.65;
+    font-size: 16px;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -92,6 +93,17 @@
   h6 {
     font-family: var(--font-display);
     color: var(--ink);
+  }
+
+  p,
+  li,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  label {
+    font-family: var(--font-sans);
   }
 }
 
@@ -113,9 +125,10 @@
 
 .nav-link {
   font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #64748b;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--ink);
   transition: color 0.15s ease;
 }
 
@@ -140,57 +153,261 @@
   flex-direction: column;
   gap: 1.25rem;
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
+  font-size: 1rem;
   line-height: 1.8;
-  color: #475569;
+  color: var(--foreground);
 }
 
 .profile-hero {
-  background: #ffffff;
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    color-mix(in oklab, var(--surface) 35%, white) 100%
+  );
 }
 
-.about-portrait {
-  margin-inline: auto;
-  width: 100%;
-  max-width: 260px;
-  padding-top: 0;
+.profile-hero__inner {
+  padding-block: clamp(3rem, 6vw, 5rem);
 }
 
-@media (min-width: 640px) {
-  .about-portrait {
-    max-width: 280px;
-    padding-top: 12px;
-  }
+.section-accent {
+  display: block;
+  margin-bottom: 0.875rem;
+  height: 0.125rem;
+  width: 2.75rem;
+  border-radius: 999px;
+  background: var(--accent-orange);
 }
 
-@media (min-width: 768px) {
-  .about-portrait {
-    max-width: 300px;
-    padding-top: 16px;
-  }
+.about-profile {
+  display: grid;
+  gap: 2.5rem;
+  align-items: start;
 }
 
 @media (min-width: 1024px) {
-  .about-portrait {
-    margin-inline: 0;
-    max-width: 300px;
-    padding-top: 20px;
-    justify-self: end;
+  .about-profile {
+    grid-template-columns: minmax(280px, 380px) minmax(0, 1fr);
+    gap: 3.5rem;
+    align-items: start;
   }
 }
 
 @media (min-width: 1280px) {
-  .about-portrait {
-    max-width: 320px;
-    padding-top: 20px;
+  .about-profile {
+    grid-template-columns: minmax(320px, 420px) minmax(0, 1fr);
+    gap: 4rem;
+  }
+}
+
+.about-profile__aside {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 320px;
+}
+
+@media (min-width: 1024px) {
+  .about-profile__aside {
+    margin-inline: 0;
+    max-width: none;
+    position: sticky;
+    top: 6.5rem;
+  }
+}
+
+.about-profile__main {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.about-profile__intro {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-profile__title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+@media (min-width: 768px) {
+  .about-profile__title {
+    font-size: 1.75rem;
+  }
+}
+
+.about-profile__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--foreground);
+}
+
+@media (min-width: 768px) {
+  .about-profile__copy {
+    font-size: 1.0625rem;
+    line-height: 1.85;
+  }
+}
+
+.portrait-column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.about-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  margin-top: 0.25rem;
+  padding-top: 1.125rem;
+  border-top: 1px solid var(--border);
+}
+
+.about-contact--below-portrait {
+  width: 100%;
+}
+
+.about-contact__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.875rem;
+  width: 100%;
+}
+
+@media (min-width: 400px) {
+  .about-contact__row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 0.75rem;
+  }
+}
+
+.about-contact__item {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  min-width: 0;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.about-contact__item--full {
+  display: flex;
+  width: 100%;
+}
+
+a.about-contact__item:hover {
+  color: var(--accent-orange);
+}
+
+.about-contact__icon {
+  display: grid;
+  height: 2rem;
+  width: 2rem;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 0.5rem;
+  background: var(--gold-soft);
+  color: var(--accent-orange);
+}
+
+@media (min-width: 768px) {
+  .about-contact__item {
+    font-size: 0.875rem;
   }
 }
 
 .portrait-frame {
+  position: relative;
   border-radius: 1rem;
   border: 1px solid var(--border);
-  box-shadow: 0 12px 40px color-mix(in oklab, var(--ink) 8%, transparent);
+  background: white;
+  box-shadow: 0 14px 42px color-mix(in oklab, var(--ink) 9%, transparent);
   overflow: hidden;
+}
+
+.portrait-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 2;
+  height: 3px;
+  background: var(--accent-orange);
+}
+
+.portrait-frame__fade {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 1;
+  height: 38%;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    color-mix(in oklab, var(--ink) 8%, transparent) 60%,
+    color-mix(in oklab, var(--ink) 22%, transparent) 100%
+  );
+  pointer-events: none;
+}
+
+.portrait-quals {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border-top: 1px solid color-mix(in oklab, white 28%, transparent);
+  background: color-mix(in oklab, white 16%, transparent);
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  box-shadow: inset 0 1px 0 color-mix(in oklab, white 22%, transparent);
+  pointer-events: none;
+}
+
+.portrait-qual {
+  flex: 1;
+  min-width: 0;
+  padding: 0 0.5rem;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-align: center;
+  color: white;
+  white-space: nowrap;
+}
+
+.portrait-qual:not(:first-child) {
+  border-left: 1px solid color-mix(in oklab, white 32%, transparent);
+}
+
+@media (min-width: 768px) {
+  .portrait-quals {
+    padding: 1rem 0;
+    backdrop-filter: blur(20px) saturate(1.25);
+    -webkit-backdrop-filter: blur(20px) saturate(1.25);
+  }
+
+  .portrait-qual {
+    font-size: 0.8125rem;
+    letter-spacing: 0.1em;
+    padding: 0 0.75rem;
+  }
 }
 
 .service-card {
@@ -232,9 +449,19 @@
 }
 
 .credentials-section {
-  margin-top: 3rem;
-  padding-top: 2.5rem;
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  padding-top: clamp(2rem, 4vw, 3rem);
   border-top: 1px solid var(--border);
+}
+
+.credentials-section > h3 {
+  font-size: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .credentials-section > h3 {
+    font-size: 1.375rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -303,8 +530,8 @@
 }
 
 .credential-tile__tag {
-  font-family: var(--font-display);
-  font-size: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: 0.04em;
@@ -315,26 +542,26 @@
   margin-top: 0.375rem;
   flex: 1;
   font-family: var(--font-sans);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   line-height: 1.45;
   color: color-mix(in oklab, var(--foreground) 82%, transparent);
 }
 
 @media (min-width: 640px) {
   .credential-tile {
-    min-height: 6rem;
+    min-height: 6.25rem;
   }
 
   .credential-tile__inner {
-    min-height: 5.5rem;
+    min-height: 5.75rem;
     padding: 0.875rem 0.75rem;
   }
 
   .credential-tile__tag {
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
   }
 
   .credential-tile__label {
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
   }
 }

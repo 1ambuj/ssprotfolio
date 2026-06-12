@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowUpRight, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { navLinks, site } from '../../data/content'
 import { Container } from '../ui/Container'
 import { cn } from '../../lib/cn'
@@ -12,7 +12,7 @@ export function Navbar() {
     <header className="site-header sticky top-0 z-50">
       <div className="h-0.5 bg-accent-orange" aria-hidden="true" />
 
-      <Container className="flex h-[4.5rem] items-center justify-between gap-6 md:h-[5rem]">
+      <Container className="flex h-[4.5rem] items-center gap-6 md:h-[5rem]">
         <Link
           to="/"
           className="flex min-w-0 items-center gap-3"
@@ -31,25 +31,17 @@ export function Navbar() {
           </span>
         </Link>
 
-        <nav
-          className="hidden items-center gap-1 lg:flex"
-          aria-label="Main navigation"
-        >
-          {navLinks.map((link) => (
-            <Link key={link.href} to={link.href} className="nav-link px-3 py-2">
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-2">
-          <a
-            href={`mailto:${site.email}`}
-            className="hidden items-center gap-1.5 rounded-lg border border-border bg-white px-4 py-2 font-body text-sm font-medium text-ink transition-colors hover:border-accent-orange/40 hover:text-accent-orange md:inline-flex"
+        <div className="ml-auto flex items-center gap-1">
+          <nav
+            className="hidden items-center gap-1 lg:flex"
+            aria-label="Main navigation"
           >
-            Contact
-            <ArrowUpRight size={14} />
-          </a>
+            {navLinks.map((link) => (
+              <Link key={link.href} to={link.href} className="nav-link px-3.5 py-2">
+                {link.label}
+              </Link>
+            ))}
+          </nav>
 
           <button
             type="button"
@@ -74,19 +66,12 @@ export function Navbar() {
             <Link
               key={link.href}
               to={link.href}
-              className="block py-2.5 font-body text-[15px] font-medium text-ink"
+              className="nav-link block py-2.5"
               onClick={() => setMobileOpen(false)}
             >
               {link.label}
             </Link>
           ))}
-          <a
-            href={`mailto:${site.email}`}
-            className="mt-2 inline-flex items-center gap-1.5 font-body text-sm font-medium text-accent-orange"
-          >
-            Contact
-            <ArrowUpRight size={14} />
-          </a>
         </nav>
       </div>
     </header>

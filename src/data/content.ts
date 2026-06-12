@@ -14,7 +14,7 @@ export const site = {
 
 export const navLinks = [
   { label: 'About', href: '/#about' },
-  { label: 'Services', href: '/#services' },
+  { label: 'Practice Areas', href: '/#services' },
   { label: 'Handbook', href: '/#handbook' },
   { label: 'Blogs', href: '/#blogs' },
 ]
@@ -212,7 +212,7 @@ export const blogs: PortfolioBlog[] = [
     "title": "The 85% Application Rule: Why Getting the Computation Right Is More Complex Than It Appears",
     "excerpt": "The central income-exemption test for every RNPO under the Income Tax Act, 2025 — and the subtle errors in applying it that generate unexpec…",
     "readTime": "16 min read",
-    "href": "/services/taxation/ita-2025-rnpo-85-percent-application-rule"
+    "href": "https://www.sspartners.in/services/taxation/ita-2025-rnpo-85-percent-application-rule"
   },
   {
     "slug": "fcra-compliance-five-obligations-2020",
@@ -222,7 +222,7 @@ export const blogs: PortfolioBlog[] = [
     "title": "FCRA Compliance After the 2020 Amendments: The Five Obligations That NGOs Most Frequently Miss",
     "excerpt": "A compliance framework for charitable trusts, NGOs, Section 8 companies, and societies receiving foreign contributions under the Foreign Con…",
     "readTime": "22–26 min read",
-    "href": "/services/taxation/fcra-compliance-five-obligations-2020"
+    "href": "https://www.sspartners.in/services/taxation/fcra-compliance-five-obligations-2020"
   },
   {
     "slug": "private-limited-vs-llp-startup-2025",
@@ -232,7 +232,7 @@ export const blogs: PortfolioBlog[] = [
     "title": "Private Limited vs LLP: Choosing the Right Structure for Your Startup in 2025",
     "excerpt": "Tax treatment, compliance cadence, DPIIT recognition, Angel Tax under Section 56(2)(viib), ESOP eligibility, and investor readiness — a stru…",
     "readTime": "12–14 min read",
-    "href": "/services/advisory/private-limited-vs-llp-startup-2025"
+    "href": "https://www.sspartners.in/services/advisory/private-limited-vs-llp-startup-2025"
   },
   {
     "slug": "msme-udyam-reclassification-trap",
@@ -242,7 +242,7 @@ export const blogs: PortfolioBlog[] = [
     "title": "Udyam Re-registration and the MSME Classification Trap: What Owners Must Know",
     "excerpt": "Classification thresholds, re-registration triggers, benefit cessation timelines, and compliance alignment when turnover or investment cross…",
     "readTime": "10–12 min read",
-    "href": "/services/advisory/msme-udyam-reclassification-trap"
+    "href": "https://www.sspartners.in/services/advisory/msme-udyam-reclassification-trap"
   },
   {
     "slug": "msmed-act-45-day-payment-rule",
@@ -252,7 +252,7 @@ export const blogs: PortfolioBlog[] = [
     "title": "MSMED Act & the 45-Day Payment Rule: How to Enforce Your Right to Timely Payment",
     "excerpt": "A legal, tax, and enforcement framework for MSMEs, vendors, and buyers under the MSMED Act, 2006 and the Finance Act, 2023 amendment.",
     "readTime": "10–12 min read",
-    "href": "/services/advisory/msmed-act-45-day-payment-rule"
+    "href": "https://www.sspartners.in/services/advisory/msmed-act-45-day-payment-rule"
   },
   {
     "slug": "business-succession-plan-before-crisis",
@@ -262,7 +262,7 @@ export const blogs: PortfolioBlog[] = [
     "title": "Why Business Families Need a Succession Plan Before They Think They Do",
     "excerpt": "Proactive Will planning, family trust structuring, business continuity frameworks, and Family Constitutions — before crisis forces reactive …",
     "readTime": "11–13 min read",
-    "href": "/services/advisory/business-succession-plan-before-crisis"
+    "href": "https://www.sspartners.in/services/advisory/business-succession-plan-before-crisis"
   },
   {
     "slug": "shareholder-agreements-indian-startups",
@@ -272,7 +272,7 @@ export const blogs: PortfolioBlog[] = [
     "title": "Shareholder Agreements for Indian Startups: Clauses That Protect Founders and Attract Investors",
     "excerpt": "Anti-dilution, drag-along and tag-along, ROFR, vesting, reserved matters, and dispute resolution — essential SHA provisions before your firs…",
     "readTime": "11–13 min read",
-    "href": "/services/advisory/shareholder-agreements-indian-startups"
+    "href": "https://www.sspartners.in/services/advisory/shareholder-agreements-indian-startups"
   },
   {
     "slug": "related-party-transactions-companies-act",
@@ -282,7 +282,7 @@ export const blogs: PortfolioBlog[] = [
     "title": "Related Party Transactions Under the Companies Act: Disclosure, Approval, and the Audit Committee's Role",
     "excerpt": "Section 188 approval thresholds, audit committee review, Schedule V disclosure, and common governance failures in RPT compliance.",
     "readTime": "10–12 min read",
-    "href": "/services/advisory/related-party-transactions-companies-act"
+    "href": "https://www.sspartners.in/services/advisory/related-party-transactions-companies-act"
   },
   {
     "slug": "huf-tax-succession-planning-2025",
@@ -292,7 +292,7 @@ export const blogs: PortfolioBlog[] = [
     "title": "HUF: Is It Still a Relevant Tax and Succession Planning Tool in 2025?",
     "excerpt": "Income-splitting, separate PAN assessment, partition planning, Section 64 clubbing, and when HUF structures remain worth forming for Hindu f…",
     "readTime": "10–12 min read",
-    "href": "/services/advisory/huf-tax-succession-planning-2025"
+    "href": "https://www.sspartners.in/services/advisory/huf-tax-succession-planning-2025"
   },
   {
     "slug": "csr-section-135-utilisation-certification",
@@ -302,7 +302,7 @@ export const blogs: PortfolioBlog[] = [
     "title": "CSR Under Section 135: Common Errors in Utilisation Certification and How to Avoid Them",
     "excerpt": "Spending thresholds, eligible activities, administrative cap, impact assessment, independent practitioner certification, and UDIN discipline…",
     "readTime": "10–12 min read",
-    "href": "/services/advisory/csr-section-135-utilisation-certification"
+    "href": "https://www.sspartners.in/services/advisory/csr-section-135-utilisation-certification"
   },
   {
     "slug": "four-labour-codes-implementation-status",
@@ -312,7 +312,7 @@ export const blogs: PortfolioBlog[] = [
     "title": "India's Four Labour Codes: Implementation Status, Compliance Gaps, and What Employers Must Prepare",
     "excerpt": "Code on Wages, Industrial Relations Code, Code on Social Security, and OSH Code — state notification status, payroll impact, and employer re…",
     "readTime": "14–16 min read",
-    "href": "/services/advisory/four-labour-codes-implementation-status"
+    "href": "https://www.sspartners.in/services/advisory/four-labour-codes-implementation-status"
   },
   {
     "slug": "nri-property-transactions-india-fema-tds",
@@ -322,7 +322,7 @@ export const blogs: PortfolioBlog[] = [
     "title": "The NRI's Guide to Property Transactions in India: FEMA, TDS, and Repatriation — All in One Place",
     "excerpt": "Purchase, sale, and rental of Indian property by NRIs — Section 195 TDS, capital gains under ITA 2025, FEMA repatriation limits, DTAA relief…",
     "readTime": "22–26 min read",
-    "href": "/services/advisory/nri-property-transactions-india-fema-tds"
+    "href": "https://www.sspartners.in/services/advisory/nri-property-transactions-india-fema-tds"
   },
   {
     "slug": "india-entry-vehicle-subsidiary-liaison-branch-office",
@@ -332,7 +332,7 @@ export const blogs: PortfolioBlog[] = [
     "title": "Subsidiary, Liaison Office, or Branch Office: Choosing the Right India Entry Vehicle",
     "excerpt": "A Regulatory, Tax, and Strategic Analysis for Foreign Companies Evaluating Commercial Presence in India Under FEMA, the Companies Act, 2013,…",
     "readTime": "22–26 min read",
-    "href": "/services/advisory/india-entry-vehicle-subsidiary-liaison-branch-office"
+    "href": "https://www.sspartners.in/services/nri/india-entry-vehicle-subsidiary-liaison-branch-office"
   },
   {
     "slug": "private-family-trust-india-structure-tax",
@@ -342,7 +342,7 @@ export const blogs: PortfolioBlog[] = [
     "title": "Private Family Trusts in India: When They Work, When They Don't, and How to Structure Them Right",
     "excerpt": "A Legal, Tax, and Governance Framework for Business Families, HNIs, NRIs, and Professionals",
     "readTime": "22–26 min read",
-    "href": "/services/advisory/private-family-trust-india-structure-tax"
+    "href": "https://www.sspartners.in/services/advisory/private-family-trust-india-structure-tax"
   },
   {
     "slug": "nri-capital-gains-property-ita-2025",
@@ -352,7 +352,7 @@ export const blogs: PortfolioBlog[] = [
     "title": "NRI Capital Gains on Indian Property: What Changed Under the Income Tax Act, 2025",
     "excerpt": "A comprehensive analysis of capital gains tax rates, indexation, TDS mechanics, repatriation compliance, exemption planning, and FEMA obliga…",
     "readTime": "20–24 min read",
-    "href": "/services/nri/nri-capital-gains-property-ita-2025"
+    "href": "https://www.sspartners.in/services/nri/nri-capital-gains-property-ita-2025"
   },
   {
     "slug": "nri-property-repatriation-fema-guide",
@@ -362,7 +362,7 @@ export const blogs: PortfolioBlog[] = [
     "title": "Repatriating Property Sale Proceeds from India: A Step-by-Step FEMA and Tax Compliance Guide for NRIs",
     "excerpt": "FEMA repatriation rules, NRO account routing, the USD 1 million annual limit, Forms 145 and 146, RBI approval, and common failure points whe…",
     "readTime": "20–24 min read",
-    "href": "/services/nri/nri-property-repatriation-fema-guide"
+    "href": "https://www.sspartners.in/services/nri/nri-property-repatriation-fema-guide"
   },
   {
     "slug": "dtaa-mli-india-treaty-benefits-ppt",
@@ -372,7 +372,7 @@ export const blogs: PortfolioBlog[] = [
     "title": "DTAA Benefits After the Multilateral Instrument: Has Your Treaty Changed? A Comprehensive Analysis of the MLI's Impact on India's Tax Treaties",
     "excerpt": "Principal Purpose Test, Limitation of Benefits, Covered Tax Agreements, the notification controversy, key ITAT rulings, CBDT Circular No. 01…",
     "readTime": "22–26 min read",
-    "href": "/services/nri/dtaa-mli-india-treaty-benefits-ppt"
+    "href": "https://www.sspartners.in/services/nri/dtaa-mli-india-treaty-benefits-ppt"
   },
   {
     "slug": "nri-rental-income-india-complete-guide",
@@ -382,7 +382,7 @@ export const blogs: PortfolioBlog[] = [
     "title": "Rental Income from Indian Property: A Complete Compliance Guide for Non-Resident Indians",
     "excerpt": "A comprehensive analysis of income-tax classification and deductions, TDS obligations, NRO account management, GST on commercial leases, FEM…",
     "readTime": "20–24 min read",
-    "href": "/services/nri/nri-rental-income-india-complete-guide"
+    "href": "https://www.sspartners.in/services/nri/nri-rental-income-india-complete-guide"
   },
   {
     "slug": "budget-2022-gst",
@@ -452,7 +452,7 @@ export const blogs: PortfolioBlog[] = [
     "title": "Private Limited vs LLP: Choosing the Right Structure for Your Startup",
     "excerpt": "How entity selection affects compliance load, fund-raising, DPIIT recognition, and tax—what founders should align before first investment.",
     "readTime": "6 min read",
-    "href": "/blog-details/startup-structure-entity-choice"
+    "href": "https://www.sspartners.in/services/advisory/private-limited-vs-llp-startup-2025"
   },
   {
     "slug": "msme-udyam-reclassification",
