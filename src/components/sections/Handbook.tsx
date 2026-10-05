@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { ArrowUpRight } from 'lucide-react'
 import { handbookSection, handbooks } from '../../data/content'
 import { Container } from '../ui/Container'
 import { SectionLabel } from '../ui/SectionLabel'
@@ -16,10 +15,10 @@ export function Handbook() {
           description={handbookSection.description}
         />
 
-        <div className="handbook-stack">
+        <div className="handbook-grid">
           {handbooks.map((book) => (
-            <article key={book.slug} className="handbook-entry">
-              <div className="handbook-entry__cover">
+            <article key={book.slug} className="handbook-card">
+              <div className="handbook-card__cover">
                 <img
                   src={book.coverUrl}
                   alt={`${book.title} cover`}
@@ -27,19 +26,16 @@ export function Handbook() {
                 />
               </div>
 
-              <div className="handbook-entry__content">
-                <p className="handbook-entry__meta">{book.year} edition</p>
-                <h3 className="handbook-entry__title">{book.title}</h3>
-                <p className="handbook-entry__subtitle">{book.subtitle}</p>
-                <p className="handbook-entry__excerpt">{book.excerpt}</p>
+              <div className="handbook-card__body">
+                <h3 className="handbook-card__title">{book.title}</h3>
+                <p className="handbook-card__excerpt">{book.excerpt}</p>
 
                 <button
                   type="button"
-                  className="handbook-entry__cta"
+                  className="handbook-card__cta"
                   onClick={() => setActive(book)}
                 >
                   Request access
-                  <ArrowUpRight size={14} aria-hidden="true" />
                 </button>
               </div>
             </article>
