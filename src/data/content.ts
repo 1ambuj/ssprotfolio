@@ -119,9 +119,9 @@ export const services = [
 ] as const
 
 export const handbookSection = {
-  title: 'Handbook',
+  title: 'Handbooks',
   description:
-    'Publications and reference guides for practitioners and business owners.',
+    'Practical firm publications for compliance and advisory work. Request access for the full PDF.',
 }
 
 export const blogSection = {
@@ -130,44 +130,51 @@ export const blogSection = {
     'Analysis and commentary on tax, GST, audit, and governance.',
 }
 
+/** Firm handbooks from Resources → Handbooks on sspartners.in */
 export const handbooks = [
   {
-    slug: 'gst-decoded',
-    title: 'GST Decoded',
-    subtitle: "A practitioner's guide to India's indirect tax regime",
-    year: '2023',
-    icon: 'book',
-    excerpt:
-      'A structured reference for business owners and finance teams on GST law, compliance, and common practical issues.',
-    description: [
-      'GST Decoded explains key concepts under India\'s GST framework in clear, practitioner-friendly language. It covers registration, invoicing, input tax credit, returns, refunds, and departmental scrutiny.',
-      'The handbook is designed for entrepreneurs, CFOs, and accounting teams who need a dependable desk reference — not just theory, but how provisions apply in day-to-day business situations.',
-    ],
-  },
-  {
-    slug: 'tax-planning-entrepreneurs',
-    title: 'Tax Planning for Entrepreneurs',
-    subtitle: "A founder's guide to Indian taxation",
-    year: '2021',
-    icon: 'file',
-    excerpt:
-      'Practical guidance on structuring, remuneration, and compliance for founders and closely held businesses.',
-    description: [
-      'This handbook addresses tax considerations at each stage of a business — from incorporation and capital structuring to profit distribution, ESOPs, and exit planning.',
-      'It helps founders understand the trade-offs between salary, dividend, and reinvestment, while staying aligned with prevailing law and disclosure requirements.',
-    ],
-  },
-  {
-    slug: 'auditors-lens',
-    title: "The Auditor's Lens",
-    subtitle: 'Insights from three decades of practice',
+    slug: 'corporate-social-responsibility-in-india',
+    /** Same ID as firm site sample handbook (email request API) */
+    requestId: 'sample-csr',
+    title: 'Corporate Social Responsibility in India',
+    subtitle: 'Section 135, Companies Act, 2013',
     year: '2026',
-    icon: 'scale',
+    icon: 'book',
+    coverUrl: '/images/handbooks/csr-handbook.png',
+    href: 'https://www.sspartners.in/handbooks/corporate-social-responsibility-in-india',
     excerpt:
-      'Reflections on audit quality, governance, and the evolving expectations of boards and regulators.',
+      'A practical handbook under Section 135 of the Companies Act, 2013, including the CSR Policy Amendment Rules, 2026 and the Schedule VII amendment notified on 27 May 2026.',
+    highlights: [
+      'Applicability thresholds and CSR committee requirements',
+      'Policy formulation and spending obligations',
+      'Eligible activities under Schedule VII',
+      'CSR Policy Amendment Rules, 2026',
+      'Schedule VII amendment notified on 27 May 2026',
+    ],
     description: [
-      "The Auditor's Lens draws on decades of audit and advisory work to discuss what boards, audit committees, and management teams should expect from a high-quality engagement.",
-      'Topics include risk assessment, documentation, communication with those charged with governance, and building an audit-ready organisation.',
+      'A practical handbook under Section 135 of the Companies Act, 2013, including the CSR Policy Amendment Rules, 2026 and the Schedule VII amendment notified on 27 May 2026.',
+    ],
+  },
+  {
+    slug: 'tax-audit-manual',
+    requestId: 'sample-tax-audit',
+    title: 'Tax Audit Manual',
+    subtitle: 'Section 44AB · Forms 3CA, 3CB & 3CD',
+    year: '2026',
+    icon: 'file',
+    coverUrl: '/images/handbooks/tax-audit-manual.png',
+    href: 'https://www.sspartners.in/handbooks/tax-audit-manual',
+    excerpt:
+      'A practical handbook on Section 44AB, Forms 3CA, 3CB and 3CD, with clause-wise guidance for Assessment Year 2026–27. September 2026 edition.',
+    highlights: [
+      'Applicability and appointment under Section 44AB',
+      'Forms 3CA, 3CB and 3CD reporting guidance',
+      'Clause-wise commentary for AY 2026–27',
+      'Practical notes for practitioners and finance teams',
+      'September 2026 edition',
+    ],
+    description: [
+      'A practical handbook on Section 44AB, Forms 3CA, 3CB and 3CD, with clause-wise guidance for Assessment Year 2026–27. September 2026 edition.',
     ],
   },
 ]
@@ -181,6 +188,8 @@ export type PortfolioBlog = {
   excerpt: string;
   readTime: string;
   href: string;
+  /** Card cover image (ImageKit / firm site thumbnail) */
+  image?: string;
 };
 
 export const blogs: PortfolioBlog[] = [
@@ -484,7 +493,9 @@ export function getBlogBySlug(slug: string) {
 
 export function getBlogUrl(slug: string, origin = SITE_ORIGIN) {
   const post = getBlogBySlug(slug)
-  if (!post) return null
+  if (!post) {
+    return `${origin}/blog/${slug}`
+  }
 
   if (/^https?:\/\//.test(post.href)) {
     return post.href
@@ -503,4 +514,15 @@ export function getBlogUrl(slug: string, origin = SITE_ORIGIN) {
 
 export function getHandbookBySlug(slug: string) {
   return handbooks.find((book) => book.slug === slug)
+}
+
+export function getHandbookUrl(slug: string, origin = SITE_ORIGIN) {
+  const book = getHandbookBySlug(slug)
+  if (!book) return null
+
+  if (book.href && /^https?:\/\//.test(book.href)) {
+    return book.href
+  }
+
+  return `${origin}/handbooks/${book.slug}`
 }

@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/handbook-request",
+      "destination": "https://www.sspartners.in/api/handbook-request"
+    },
+    {
+      "source": "/api/handbook-confirm",
+      "destination": "https://www.sspartners.in/api/handbook-confirm"
+    },
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

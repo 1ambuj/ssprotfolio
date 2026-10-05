@@ -1,23 +1,8 @@
-import {
-  Briefcase,
-  Globe,
-  Landmark,
-  Newspaper,
-  Receipt,
-  type LucideIcon,
-} from 'lucide-react'
+import { Newspaper, type LucideIcon } from 'lucide-react'
 import { getBlogUrl, type PortfolioBlog } from '../../data/content'
 import { ContentCard } from '../ui/ContentCard'
 
-const iconMap: Record<string, LucideIcon> = {
-  newspaper: Newspaper,
-  receipt: Receipt,
-  landmark: Landmark,
-  briefcase: Briefcase,
-  globe: Globe,
-}
-
-const fallbackIcon = Newspaper
+const fallbackIcon: LucideIcon = Newspaper
 
 export function BlogCardList({ posts }: { posts: PortfolioBlog[] }) {
   return (
@@ -25,14 +10,17 @@ export function BlogCardList({ posts }: { posts: PortfolioBlog[] }) {
       {posts.map((post) => (
         <ContentCard
           key={post.slug}
-          href={getBlogUrl(post.slug) ?? post.href}
+          href={post.href || getBlogUrl(post.slug) || undefined}
           newTab
-          icon={iconMap[post.icon] ?? fallbackIcon}
-          meta={`${post.category} · ${post.date}`}
+          coverUrl={post.image}
+          coverAlt={post.title}
+          coverAspect="landscape"
+          icon={post.image ? undefined : fallbackIcon}
+          meta={`${post.category}${post.date ? ` · ${post.date}` : ''}`}
           title={post.title}
-          subtitle={post.readTime}
+          subtitle={post.readTime || undefined}
           description={post.excerpt}
-          cta="Read more"
+          cta="Read on website"
         />
       ))}
     </div>

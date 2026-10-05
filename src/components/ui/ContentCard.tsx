@@ -6,7 +6,11 @@ interface ContentCardProps {
   to?: string
   href?: string
   newTab?: boolean
-  icon: LucideIcon
+  icon?: LucideIcon
+  coverUrl?: string
+  coverAlt?: string
+  /** portrait = handbook covers; landscape = blog cards */
+  coverAspect?: 'portrait' | 'landscape'
   meta?: string
   title: string
   subtitle?: string
@@ -20,6 +24,9 @@ export function ContentCard({
   href,
   newTab = true,
   icon: Icon,
+  coverUrl,
+  coverAlt,
+  coverAspect = 'portrait',
   meta,
   title,
   subtitle,
@@ -31,9 +38,28 @@ export function ContentCard({
 
   const body = (
     <>
-      <div className="mb-6 grid h-14 w-14 place-items-center rounded-xl bg-icon-tile text-ink/70 transition-colors group-hover:bg-gold-soft">
-        <Icon size={26} strokeWidth={1.5} />
-      </div>
+      {coverUrl ? (
+        <div
+          className={cn(
+            'mb-5 overflow-hidden rounded-lg border border-border bg-surface',
+            coverAspect === 'landscape' ? 'handbook-cover handbook-cover--landscape' : 'handbook-cover',
+          )}
+        >
+          <img
+            src={coverUrl}
+            alt={coverAlt ?? title}
+            className={cn(
+              'w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]',
+              coverAspect === 'landscape' ? 'aspect-16/10' : 'aspect-3/4',
+            )}
+            loading="lazy"
+          />
+        </div>
+      ) : Icon ? (
+        <div className="mb-6 grid h-14 w-14 place-items-center rounded-xl bg-icon-tile text-ink/70 transition-colors group-hover:bg-gold-soft">
+          <Icon size={26} strokeWidth={1.5} />
+        </div>
+      ) : null}
 
       {meta && (
         <p className="font-body text-xs font-medium tracking-wide text-foreground/45 uppercase">
