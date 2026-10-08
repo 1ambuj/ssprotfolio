@@ -1,91 +1,42 @@
-import type { ReactNode } from 'react'
 import { profile } from '../../../data/content'
 
 function formatCertDetail(issuer: string) {
   return issuer.replace(/^ICAI Certification — /, '')
 }
 
-function SectionBlock({
-  id,
-  label,
-  children,
-}: {
-  id: string
-  label: string
-  children: ReactNode
-}) {
-  return (
-    <section aria-labelledby={id} className="w-full">
-      <div className="flex items-center gap-2.5">
-        <span className="h-px w-6 bg-accent-orange" aria-hidden="true" />
-        <h4
-          id={id}
-          className="font-body text-[11px] font-semibold uppercase tracking-[0.12em] text-foreground/50"
-        >
-          {label}
-        </h4>
-      </div>
-      {children}
-    </section>
-  )
-}
-
-function CredentialTile({
-  tag,
-  label,
-  variant = 'cert',
-}: {
-  tag: string
-  label: string
-  variant?: 'cert' | 'member'
-}) {
-  return (
-    <li
-      className={
-        variant === 'cert' ? 'credential-tile credential-tile--cert' : 'credential-tile'
-      }
-    >
-      <div className="credential-tile__inner">
-        <p className="credential-tile__tag">{tag}</p>
-        <p className="credential-tile__label">{label}</p>
-      </div>
-    </li>
-  )
-}
-
 export function Credentials() {
   return (
-    <div className="credentials-section">
-      <h3 className="font-display text-lg font-semibold text-ink">
-        {profile.credentialsTitle}
-      </h3>
+    <div className="credentials">
+      <header className="credentials__header">
+        <span className="section-accent" aria-hidden="true" />
+        <h3>{profile.credentialsTitle}</h3>
+        <p>{profile.credentialsLead}</p>
+      </header>
 
-      <div className="credentials-section__groups">
-        <SectionBlock id="certifications-heading" label={profile.certificationsHeading}>
-          <ul className="credential-grid">
+      <div className="credentials__columns">
+        <section aria-labelledby="certifications-heading">
+          <h4 id="certifications-heading">{profile.certificationsHeading}</h4>
+          <ul className="cred-list">
             {profile.certifications.map((cert) => (
-              <CredentialTile
-                key={cert.title}
-                variant="cert"
-                tag={cert.title}
-                label={formatCertDetail(cert.issuer)}
-              />
+              <li key={cert.title}>
+                <span className="cred-list__code">{cert.title}</span>
+                <span className="cred-list__text">{formatCertDetail(cert.issuer)}</span>
+              </li>
             ))}
           </ul>
-        </SectionBlock>
+        </section>
 
-        <SectionBlock id="memberships-heading" label={profile.membershipsHeading}>
-          <ul className="credential-grid">
+        <section aria-labelledby="memberships-heading">
+          <h4 id="memberships-heading">{profile.membershipsHeading}</h4>
+          <ul className="cred-list">
             {profile.memberships.map((item) => (
-              <CredentialTile
-                key={item.title}
-                variant="member"
-                tag={item.issuer}
-                label={item.title}
-              />
+              <li key={item.title}>
+                <span className="cred-list__code">{item.issuer}</span>
+                <span className="cred-list__text">{item.title}</span>
+              </li>
             ))}
           </ul>
-        </SectionBlock>
+        </section>
       </div>
     </div>
   )

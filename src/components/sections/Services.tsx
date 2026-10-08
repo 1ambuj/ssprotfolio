@@ -1,5 +1,5 @@
 import {
-  ArrowRight,
+  ArrowUpRight,
   Globe,
   Receipt,
   Search,
@@ -9,7 +9,6 @@ import {
 import { services, servicesSection } from '../../data/content'
 import { Container } from '../ui/Container'
 import { SectionLabel } from '../ui/SectionLabel'
-import { cn } from '../../lib/cn'
 
 const iconMap: Record<(typeof services)[number]['icon'], LucideIcon> = {
   shield: ShieldCheck,
@@ -20,14 +19,14 @@ const iconMap: Record<(typeof services)[number]['icon'], LucideIcon> = {
 
 export function Services() {
   return (
-    <section id="services" className="section-block border-b border-border bg-white">
+    <section id="services" className="section-block border-b border-border bg-background">
       <Container>
         <SectionLabel
           title={servicesSection.title}
           description={servicesSection.description}
         />
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="practice-grid">
           {services.map((service) => {
             const Icon = iconMap[service.icon]
 
@@ -37,30 +36,17 @@ export function Services() {
                 href={service.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={cn(
-                  'service-card group flex h-full flex-col',
-                  !service.url && 'pointer-events-none opacity-60',
-                )}
+                className={`practice-card practice-card--${service.icon}`}
               >
-                <div className="mb-6 grid h-14 w-14 place-items-center rounded-xl bg-icon-tile text-ink/70 transition-colors group-hover:bg-gold-soft">
-                  <Icon size={26} strokeWidth={1.5} />
+                <div className="practice-card__top">
+                  <span className="practice-card__icon" aria-hidden="true">
+                    <Icon size={28} strokeWidth={1.75} />
+                  </span>
+                  <ArrowUpRight className="practice-card__arrow" size={16} aria-hidden="true" />
                 </div>
-
-                <h3 className="font-display text-base font-semibold leading-snug text-ink">
-                  {service.title}
-                </h3>
-
-                <p className="mt-3 flex-1 font-body text-sm leading-relaxed text-foreground/60">
-                  {service.description}
-                </p>
-
-                <span className="mt-6 inline-flex items-center gap-1.5 font-body text-xs font-semibold tracking-wide text-accent-orange uppercase">
-                  View details
-                  <ArrowRight
-                    size={14}
-                    className="transition-transform group-hover:translate-x-0.5"
-                  />
-                </span>
+                <h3 className="practice-card__title">{service.title}</h3>
+                <p className="practice-card__meaning">{service.meaning}</p>
+                <p className="practice-card__text">{service.description}</p>
               </a>
             )
           })}

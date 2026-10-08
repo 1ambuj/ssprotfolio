@@ -31,7 +31,7 @@ export function Blogs() {
   }, [])
 
   return (
-    <section id="blogs" className="section-block bg-white">
+    <section id="blogs" className="section-block bg-background">
       <Container>
         <SectionLabel
           title={blogSection.title}

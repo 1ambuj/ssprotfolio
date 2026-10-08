@@ -3,6 +3,11 @@ export const site = {
   displayName: 'CA. Sandeep Singla',
   shortName: 'SS',
   qualifications: 'B.Com, FCA, LLB',
+  qualificationItems: [
+    { code: 'B.Com', label: 'Bachelor of Commerce' },
+    { code: 'FCA', label: 'Fellow, ICAI' },
+    { code: 'LLB', label: 'Bachelor of Laws' },
+  ],
   title: 'Managing Partner | Sandeep Singla & Associates',
   email: 'sandeep@sspartners.in',
   phone: '+91-9560181790',
@@ -14,60 +19,144 @@ export const site = {
 
 export const navLinks = [
   { label: 'About', href: '/#about' },
+  { label: 'Academics', href: '/academics' },
   { label: 'Practice Areas', href: '/#services' },
   { label: 'Handbook', href: '/#handbook' },
   { label: 'Blogs', href: '/#blogs' },
 ]
 
+export type AcademicEntry = {
+  title: string
+  detail: string
+}
+
+export const academicsPage = {
+  title: 'Academics',
+  lead: 'Qualifications, ICAI certifications, professional positions, and affiliations.',
+  tabs: [
+    { id: 'academics', label: 'Academics' },
+    { id: 'positions', label: 'Positions' },
+    { id: 'contributions', label: 'Contributions' },
+  ] as const,
+}
+
+/** Degrees and core academic qualifications */
+export const academicDegrees: AcademicEntry[] = [
+  {
+    title: 'B.Com',
+    detail: 'Bachelor of Commerce',
+  },
+  {
+    title: 'FCA — Chartered Accountant',
+    detail: 'Fellow Member, Institute of Chartered Accountants of India (ICAI)',
+  },
+  {
+    title: 'LL.B — Bachelor of Law',
+    detail: 'Bachelor of Laws',
+  },
+]
+
+/** ICAI and related professional certifications */
+export const academicCertifications: AcademicEntry[] = [
+  {
+    title: 'FEMA',
+    detail: 'ICAI — Foreign Exchange Management Act',
+  },
+  {
+    title: 'NPO',
+    detail: 'ICAI — Non Profit Organizations',
+  },
+  {
+    title: 'CCA',
+    detail: 'ICAI — Concurrent Audit of Banks',
+  },
+  {
+    title: 'AI',
+    detail: 'ICAI — Artificial Intelligence (Level 1)',
+  },
+  {
+    title: 'Peer Review',
+    detail: 'ICAI — Peer Review',
+  },
+  {
+    title: 'FAFD',
+    detail: 'ICAI — Forensic Accounting and Fraud Detection',
+  },
+  {
+    title: 'Mediation',
+    detail: 'ICAI — Mediation',
+  },
+  {
+    title: 'CSR',
+    detail: 'ICAI — Certificate Course on Corporate Social Responsibility',
+  },
+]
+
+/** Professional positions and roles */
+export const academicPositions: AcademicEntry[] = [
+  {
+    title: 'Managing Partner',
+    detail: 'Sandeep Singla & Associates, Chartered Accountants',
+  },
+  {
+    title: 'Special Invitee Member',
+    detail:
+      'Committee on Auditing and Assurance Standards, NIRC of ICAI (2025–26)',
+  },
+  {
+    title: 'Peer Reviewer',
+    detail: 'Peer Review Board, Institute of Chartered Accountants of India',
+  },
+]
+
+/** Memberships and professional contributions */
+export const academicContributions: AcademicEntry[] = [
+  {
+    title: 'BCAS',
+    detail: 'Bombay Chartered Accountants Society',
+  },
+  {
+    title: 'CTC',
+    detail: 'Corporate Taxation Committee',
+  },
+  {
+    title: 'AIFTP',
+    detail: 'All India Federation of Tax Practitioners',
+  },
+  {
+    title: 'CASA',
+    detail: 'Chartered Accountants Social Affiliation',
+  },
+  {
+    title: 'XSA',
+    detail: 'Xprocon Shiksha Abhiyan · Founder Member',
+  },
+]
+
 export const profile = {
-  aboutHeading: 'About Me',
-  credentialsTitle: 'Professional qualifications and affiliations',
-  certificationsHeading: 'Certifications',
+  aboutHeading: 'About',
+  aboutLead:
+    'Trusted advisor to businesses, promoters, and non-profits on tax, compliance, governance, and restructuring.',
+  highlights: [
+    { value: '18+', label: 'Years in practice' },
+    { value: 'PR', label: 'ICAI Peer Reviewer' },
+    { value: 'NIRC', label: 'Special Invitee 25–26' },
+  ],
+  credentialsTitle: 'Credentials',
+  credentialsLead: 'ICAI certifications and professional affiliations.',
+  certificationsHeading: 'ICAI certifications',
   membershipsHeading: 'Memberships',
-  certifications: [
-    {
-      title: 'FEMA',
-      issuer: 'ICAI Certification — Foreign Exchange Management Act',
-    },
-    {
-      title: 'NPO',
-      issuer: 'ICAI Certification — Non Profit Organizations',
-    },
-    {
-      title: 'CCA',
-      issuer: 'ICAI Certification — Concurrent Audit of Banks',
-    },
-    {
-      title: 'AI',
-      issuer: 'ICAI Certification — Artificial Intelligence (Level 1)',
-    },
-    {
-      title: 'Peer Review',
-      issuer: 'ICAI Certification — Peer Review',
-    },
-  ],
-  memberships: [
-    {
-      title: 'Bombay Chartered Accountants Society',
-      issuer: 'BCAS',
-    },
-    {
-      title: 'Corporate Taxation Committee',
-      issuer: 'CTC',
-    },
-    {
-      title: 'All India Federation of Tax Practitioners',
-      issuer: 'AIFTP',
-    },
-    {
-      title: 'Chartered Accountants Social Affiliation',
-      issuer: 'CASA',
-    },
-    {
-      title: 'Xprocon Shiksha Abhiyan · Founder Member',
-      issuer: 'XSA',
-    },
-  ],
+  /** Kept for home preview — full detail on /academics */
+  certifications: academicCertifications.map((item) => ({
+    title: item.title,
+    issuer: item.detail.startsWith('ICAI')
+      ? `ICAI Certification — ${item.detail.replace(/^ICAI — /, '')}`
+      : item.detail,
+  })),
+  memberships: academicContributions.map((item) => ({
+    title: item.detail,
+    issuer: item.title,
+  })),
   paragraphs: [
     'CA. Sandeep Singla is a Fellow Member of the Institute of Chartered Accountants of India (ICAI) with over 18 years of professional experience in audit, taxation, corporate advisory, and regulatory compliance.',
     'He regularly advises businesses, startups, promoters, and corporates on matters relating to financial structuring, taxation, compliance frameworks, and risk management. His professional work includes helping organizations design strong governance structures, improve financial controls, and navigate complex regulatory environments.',
@@ -78,8 +167,7 @@ export const profile = {
 
 export const servicesSection = {
   title: 'Practice Areas',
-  description:
-    'Audit, taxation, compliance, and advisory for businesses and families.',
+  description: 'What the practice covers, in plain terms.',
 }
 
 /** Replace `url` with the matching page on your firm website. */
@@ -87,32 +175,36 @@ export const services = [
   {
     id: 'audit-assurance',
     title: 'Audit & Assurance',
+    meaning: 'An independent look at accounts and controls.',
     description:
-      'Independent, risk-based audit and assurance services conducted in accordance with ICAI Standards on Auditing.',
+      'Statutory and special audits under ICAI standards, focused on risk and reporting.',
     url: 'https://sspartners.in/',
     icon: 'shield',
   },
   {
     id: 'advisory-consulting',
     title: 'Advisory & Consulting',
+    meaning: 'Help with decisions that go beyond filings.',
     description:
-      'Advisory services beyond routine compliance and statutory filings — structured analysis, documentation and professional support for business, financial, tax and regulatory decisions.',
+      'Structuring, tax choices, governance, and regulatory questions for businesses and promoters.',
     url: 'https://sspartners.in/',
     icon: 'search',
   },
   {
     id: 'non-resident-international',
-    title: 'Non-Resident & International Services',
+    title: 'Non-Resident & International',
+    meaning: 'India tax and FEMA for people and businesses abroad.',
     description:
-      'Professional support for NRIs, foreign nationals and overseas entities in relation to Indian tax and regulatory matters, including FEMA, DTAA analysis and inbound investment advisory.',
+      'Support for NRIs and overseas entities on DTAA, inbound investment, and cross-border compliance.',
     url: 'https://sspartners.in/',
     icon: 'globe',
   },
   {
     id: 'gst-indirect-tax',
     title: 'GST & Indirect Tax',
+    meaning: 'GST compliance, advice, and representation.',
     description:
-      'GST and indirect tax advisory, compliance and representation support with reference to applicable facts, supply chain structure, commercial contracts and statutory provisions.',
+      'Returns, classifications, contracts, and disputes tied to how the business actually supplies.',
     url: 'https://sspartners.in/',
     icon: 'receipt',
   },

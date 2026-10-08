@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Layout } from './components/site/Layout'
+import { AcademicsPage } from './pages/AcademicsPage'
 import { BlogsPage } from './pages/BlogsPage'
 import { HandbookConfirmPage } from './pages/HandbookConfirmPage'
 import { HandbookPost } from './pages/HandbookPost'
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/academics" element={<AcademicsPage />} />
           <Route path="/blogs" element={<BlogsPage />} />
           <Route path="/handbook/:slug" element={<HandbookPost />} />
           <Route path="/handbooks/confirm" element={<HandbookConfirmPage />} />
